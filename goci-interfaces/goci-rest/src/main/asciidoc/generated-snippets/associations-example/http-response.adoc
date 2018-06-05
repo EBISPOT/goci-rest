@@ -1,0 +1,77 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 2069
+
+{
+  "riskFrequency" : "NR",
+  "pvalueDescription" : null,
+  "pvalueMantissa" : 3,
+  "pvalueExponent" : -18,
+  "multiSnpHaplotype" : false,
+  "snpInteraction" : false,
+  "snpType" : "known",
+  "standardError" : null,
+  "range" : "[12.41-19.61]",
+  "description" : null,
+  "orPerCopyNum" : null,
+  "betaNum" : 16.01,
+  "betaUnit" : "unit",
+  "betaDirection" : "decrease",
+  "loci" : [ {
+    "haplotypeSnpCount" : null,
+    "description" : "Single variant",
+    "strongestRiskAlleles" : [ {
+      "riskAlleleName" : "rs16890979-A",
+      "riskFrequency" : "NR",
+      "genomeWide" : false,
+      "limitedList" : false,
+      "_links" : {
+        "proxySnps" : {
+          "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/singleNucleotidePolymorphisms/NR"
+        },
+        "snp" : {
+          "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/singleNucleotidePolymorphisms/rs16890979"
+        }
+      }
+    } ],
+    "authorReportedGenes" : [ {
+      "geneName" : "SLC2A9",
+      "entrezGeneIds" : [ {
+        "entrezGeneId" : "56606"
+      } ],
+      "ensemblGeneIds" : [ {
+        "ensemblGeneId" : "ENSG00000109667"
+      } ]
+    } ],
+    "_links" : {
+      "association" : {
+        "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/associations/16510553{?projection}",
+        "templated" : true
+      }
+    }
+  } ],
+  "lastMappingDate" : "2018-04-17T00:07:52.000+0000",
+  "lastUpdateDate" : "2018-04-17T00:07:52.000+0000",
+  "pvalue" : 3.0000000000000002E-18,
+  "_links" : {
+    "self" : {
+      "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/associations/16510553"
+    },
+    "association" : {
+      "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/associations/16510553{?projection}",
+      "templated" : true
+    },
+    "study" : {
+      "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/associations/16510553/study"
+    },
+    "snps" : {
+      "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/associations/16510553/snps"
+    },
+    "efoTraits" : {
+      "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/associations/16510553/efoTraits"
+    }
+  }
+}
+----

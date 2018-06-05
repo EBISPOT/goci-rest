@@ -1,0 +1,113 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Content-Type: application/hal+json;charset=UTF-8
+Content-Length: 3262
+
+{
+  "_embedded" : {
+    "studies" : [ {
+      "initialSampleSize" : "37 European ancestry cases, 36 European ancestry controls",
+      "gxe" : false,
+      "gxg" : false,
+      "snpCount" : 251837,
+      "qualifier" : null,
+      "imputed" : false,
+      "pooled" : false,
+      "studyDesignComment" : null,
+      "accessionId" : "GCST000841",
+      "fullPvalueSet" : false,
+      "userRequested" : false,
+      "platforms" : [ {
+        "manufacturer" : "Illumina"
+      } ],
+      "ancestries" : [ {
+        "type" : "initial",
+        "numberOfIndividuals" : 73,
+        "ancestralGroups" : [ {
+          "ancestralGroup" : "European"
+        } ],
+        "countryOfOrigin" : [ ],
+        "countryOfRecruitment" : [ {
+          "majorArea" : "Northern America",
+          "region" : null,
+          "countryName" : "U.S."
+        } ]
+      } ],
+      "diseaseTrait" : {
+        "trait" : "Dupuytren's disease"
+      },
+      "genotypingTechnologies" : [ {
+        "genotypingTechnology" : "Genome-wide genotyping array"
+      } ],
+      "replicationSampleSize" : "NA",
+      "publicationInfo" : {
+        "pubmedId" : "20971583",
+        "publicationDate" : "2010-10-21",
+        "publication" : "J Hand Surg Am",
+        "title" : "Genome-wide association scan of Dupuytren's disease.",
+        "author" : {
+          "fullname" : "Ojwang JO",
+          "orcid" : null
+        },
+        "_links" : {
+          "studies" : {
+            "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/studies/GCST000841{?projection}",
+            "templated" : true
+          }
+        }
+      },
+      "_links" : {
+        "self" : {
+          "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/studies/GCST000841"
+        },
+        "study" : {
+          "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/studies/GCST000841{?projection}",
+          "templated" : true
+        },
+        "associationsByStudySummary" : {
+          "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/studies/GCST000841/associations?projection=associationByStudy"
+        },
+        "efoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/studies/GCST000841/efoTraits"
+        },
+        "associations" : {
+          "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/studies/GCST000841/associations"
+        },
+        "snps" : {
+          "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/studies/GCST000841/snps"
+        }
+      }
+    } ]
+  },
+  "_links" : {
+    "first" : {
+      "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/studies?page=0&size=1"
+    },
+    "prev" : {
+      "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/studies?page=0&size=1"
+    },
+    "self" : {
+      "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/studies"
+    },
+    "next" : {
+      "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/studies?page=2&size=1"
+    },
+    "last" : {
+      "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/studies?page=5698&size=1"
+    },
+    "profile" : {
+      "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/profile/studies"
+    },
+    "search" : {
+      "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/studies/search"
+    }
+  },
+  "page" : {
+    "size" : 1,
+    "totalElements" : 5699,
+    "totalPages" : 5699,
+    "number" : 1
+  }
+}
+----

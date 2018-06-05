@@ -1,0 +1,28 @@
+|===
+|Relation|Description
+
+|`self`
+|This association
+
+|`findByRsId`
+|Search for SNPs using parameter rsId
+
+|`findByBpLocation`
+|Search for SNPs via their base pair location
+
+|`findByDiseaseTrait`
+|Search for SNPs via a study using parameter diseaseTrait
+
+|`findByEfoTrait`
+|Search for SNPs via a study using parameter efoTrait
+
+|`findByChromBpLocationRange`
+|Search for SNPs on a certain chromosome and within a given base pair location range
+
+|`findByPubmedId`
+|Search for SNPs via a study using parameter pubmedId
+
+|`findByGene`
+|Search for SNPs via a gene using parameter geneName
+
+|===

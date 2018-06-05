@@ -1,0 +1,434 @@
+= GWAS CATALOG API Guide
+:doctype: book
+:toc: left
+:toc-title: GWAS Catalog API
+:sectanchors:
+:sectlinks:
+:toclevels: 4
+:source-highlighter: highlightjs
+
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+== HTTP verbs
+
+This API supports the following HTTP verbs.
+
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+|===
+
+[[overview-http-status-codes]]
+== HTTP status codes
+
+This API tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP status codes.
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| The request completed successfully
+
+| `400 Bad Request`
+| The request was malformed. The response body will include an error providing further information
+
+| `404 Not Found`
+| The requested resource did not exist
+|===
+
+[[overview-errors]]
+== Errors
+
+Whenever an error response (status code >= 400) is returned, the body will contain a JSON object
+that describes the problem. The error object has the following structure:
+
+include::{snippets}/error-example/response-fields.adoc[]
+
+For example, a request that attempts to apply a non-existent tag to a resource will produce a
+`400 Bad Request` response:
+
+include::{snippets}/error-example/http-response.adoc[]
+
+
+[[overview-hypermedia]]
+== Hypermedia
+
+This API uses hypermedia and resources include links to other resources in their
+responses. Responses are in http://stateless.co/hal_specification.html[Hypertext Application
+Language (HAL)] format. Links can be found benath the `_links` key. Users of the API should
+not created URIs themselves, instead they should use the above-described links to navigate
+from resource to resource.
+
+[[overview-pagination]]
+== Listing resources
+
+Requests that return multiple resources will be paginated to 20 items by default. You can change number of items
+returned using the `size` parameter up to a maximum of 500 for a single request. The API also supports the `page`
+parameter for accessing a specific page of items.
+
+=== Paging resources
+
+Links will be provided in the response to navigate the resources.
+
+==== Example request
+
+include::{snippets}/page-example/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/page-example/http-response.adoc[]
+
+
+==== Response structure
+
+include::{snippets}/page-example/response-fields.adoc[]
+
+[[resources-page-links]]
+==== Links
+
+include::{snippets}/page-example/links.adoc[]
+
+[[resources]]
+= Resources
+
+
+[[resources-api]]
+== API
+The api endpoint provides the entry point into the service.
+
+
+[[resources-api-access]]
+=== Accessing the API
+
+A `GET` request is used to access the API
+
+==== Example request
+
+include::{snippets}/api-example/curl-request.adoc[]
+
+==== Response structure
+
+include::{snippets}/api-example/response-fields.adoc[]
+
+==== Example response
+
+include::{snippets}/api-example/http-response.adoc[]
+
+[[resources-api-links]]
+==== Links
+
+include::{snippets}/api-example/links.adoc[]
+
+
+[[resources-studies]]
+== Studies
+
+The Studies resources is used to list studies in the GWAS Catalog
+
+[[resources-studies-list]]
+=== Listing studies
+
+A `GET` request will list all of the Catalog studies.
+
+==== Example request
+
+include::{snippets}/studies-list-example/curl-request.adoc[]
+
+==== Response structure
+
+The response is <<overview-pagination,paginated>> where the individual <<resources-study,study resources>>  are in the `_embedded.studies` field.
+
+[[resources-studies-search]]
+=== Searching studies
+
+A `GET` request will list all of the Catalog studies search endpoints.
+
+==== Example request
+
+include::{snippets}/studies-search-example/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/studies-search-example/http-response.adoc[]
+
+[[resources-study-links]]
+==== Links
+
+include::{snippets}/studies-search-example/links.adoc[]
+
+[[resources-study]]
+== Study
+
+=== Retrieve a study
+
+It is recommended to retrieve studies using the "study" projection for better formatted results.
+
+include::{snippets}/studies-example/path-parameters.adoc[]
+
+==== Example request
+
+include::{snippets}/studies-example/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/studies-example/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/studies-example/response-fields.adoc[]
+
+
+[[resources-study-links]]
+==== Links
+
+include::{snippets}/studies-example/links.adoc[]
+
+
+[[resources-associations]]
+== Associations
+
+The Associations resources is used to list assocations in the GWAS Catalog
+
+[[resources-associations-list]]
+=== Listing associations
+
+A `GET` request will list all of the Catalog associations.
+
+==== Example request
+
+include::{snippets}/associations-list-example/curl-request.adoc[]
+
+==== Response structure
+
+The response is <<overview-pagination,paginated>> where the individual <<resources-association,association resources>>  are in the `_embedded.associations` field.
+
+[[resources-associations-search]]
+=== Searching associations
+
+A `GET` request will list all of the Catalog associations search endpoints.
+
+==== Example request
+
+include::{snippets}/associations-search-example/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/associations-search-example/http-response.adoc[]
+
+[[resources-study-links]]
+==== Links
+
+include::{snippets}/associations-search-example/links.adoc[]
+
+[[resources-association]]
+== Association
+
+=== Retrieve an association
+
+include::{snippets}/associations-example/path-parameters.adoc[]
+
+==== Example request
+
+include::{snippets}/associations-example/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/associations-example/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/associations-example/response-fields.adoc[]
+
+[[resources-association-links]]
+==== Links
+
+include::{snippets}/associations-example/links.adoc[]
+
+[[resources-single-nucleotide-polymorphisms]]
+== Single Nucleotide Polymorphisms
+
+The SingleNucleotidePolymorphisms resources is used to list SNPs in the GWAS Catalog
+
+[[resources-single-nucleotide-polymorphisms-list]]
+=== Listing SNPs
+
+A `GET` request will list all of the Catalog SNPs.
+
+==== Example request
+
+include::{snippets}/single-nucleotide-polymorphisms-list-example/curl-request.adoc[]
+
+==== Response structure
+
+The response is <<overview-pagination,paginated>> where the individual <<resources-single-nucleotide-polymorphism,single-nucleotide-polymorphism resources>>  are in the `_embedded.singleNucleotidePolymorphisms` field.
+
+[[resources-single-nucleotide-polymorphisms-search]]
+=== Searching SNPs
+
+A `GET` request will list all of the Catalog SNP search endpoints.
+
+==== Example request
+
+include::{snippets}/single-nucleotide-polymorphisms-search-example/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/single-nucleotide-polymorphisms-search-example/http-response.adoc[]
+
+[[resources-study-links]]
+==== Links
+
+include::{snippets}/single-nucleotide-polymorphisms-search-example/links.adoc[]
+
+[[resources-single-nucleotide-polymorphism]]
+== Single Nucleotide Polymorphism
+
+=== Retrieve a SNP
+
+include::{snippets}/single-nucleotide-polymorphisms-example/path-parameters.adoc[]
+
+==== Example request
+
+include::{snippets}/single-nucleotide-polymorphisms-example/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/single-nucleotide-polymorphisms-example/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/single-nucleotide-polymorphisms-example/response-fields.adoc[]
+
+[[resources-single-nucleotide-polymorphism-links]]
+==== Links
+
+include::{snippets}/single-nucleotide-polymorphisms-example/links.adoc[]
+
+[[resources-efo-traits]]
+== EFO traits
+
+The efoTraits resources is used to list EFO traits in the GWAS Catalog
+
+[[resources-efo-traits-list]]
+=== Listing EFO traits
+
+A `GET` request will list all of the Catalog EFO traits.
+
+==== Example request
+
+include::{snippets}/efo-traits-list-example/curl-request.adoc[]
+
+==== Response structure
+
+The response is <<overview-pagination,paginated>> where the individual <<resources-efo-trait,efo-trait resources>>  are in the `_embedded.efoTraits` field.
+
+[[resources-efo-traits-search]]
+=== Searching EFO traits
+
+A `GET` request will list all of the Catalog EFO trait search endpoints.
+
+==== Example request
+
+include::{snippets}/efo-traits-search-example/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/efo-traits-search-example/http-response.adoc[]
+
+[[resources-study-links]]
+==== Links
+
+include::{snippets}/efo-traits-search-example/links.adoc[]
+
+[[resources-efo-trait]]
+== Efo trait
+
+=== Retrieve a EFO trait
+
+include::{snippets}/efo-traits-example/path-parameters.adoc[]
+
+==== Example request
+
+include::{snippets}/efo-traits-example/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/efo-traits-example/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/efo-traits-example/response-fields.adoc[]
+
+[[resources-efo-trait-links]]
+==== Links
+
+include::{snippets}/efo-traits-example/links.adoc[]
+
+
+[[custom]]
+= Custom endpoints
+
+These are convenience endpoints created as a response to common user requests
+
+[[custom-location]]
+== SNP location
+The SNP location endpoint provides a convenient way of retrieving all variants in the GWAS Catalog within a genomic region of interest.
+
+=== Retrieve a SNP by location
+
+include::{snippets}/snp-location-example/path-parameters.adoc[]
+
+==== Example request
+
+include::{snippets}/snp-location-example/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/snp-location-example/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/snp-location-example/response-fields.adoc[]
+
+[[custom-parent]]
+== Parent mapping
+The parent mapping endpoint provides a convenient way of retrieving the mapped parent and associated colour of ontology terms of interest, as used in the GWAS diagram.
+
+=== Retrieve the mapped parent and colour of a trait of interest
+
+include::{snippets}/parent-mapping-example/path-parameters.adoc[]
+
+==== Example request
+
+include::{snippets}/parent-mapping-example/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/parent-mapping-example/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/parent-mapping-example/response-fields.adoc[]
+
+[[custom-parent]]
+== Meta data
+The metadata endpoint provides a list of the resources the GWAS Catalog data is currently mapped against.
+
+=== Retrieve latest metadata
+
+==== Example request
+
+include::{snippets}/meta-data-example/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/meta-data-example/http-response.adoc[]
+
+==== Response structure
+
+include::{snippets}/meta-data-example/response-fields.adoc[]

@@ -1,0 +1,30 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 728
+
+{
+  "_links" : {
+    "studies" : {
+      "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/studies{?page,size,sort,projection}",
+      "templated" : true
+    },
+    "efoTraits" : {
+      "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/efoTraits{?page,size,sort}",
+      "templated" : true
+    },
+    "associations" : {
+      "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/associations{?page,size,sort,projection}",
+      "templated" : true
+    },
+    "singleNucleotidePolymorphisms" : {
+      "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/singleNucleotidePolymorphisms{?page,size,sort}",
+      "templated" : true
+    },
+    "profile" : {
+      "href" : "https://www.ebi.ac.uk/gwas/labs/rest/api/profile"
+    }
+  }
+}
+----
