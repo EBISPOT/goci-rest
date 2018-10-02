@@ -1,4 +1,4 @@
-./gwas/labs/rest/api/snpLocation/{range}
+./gwas/rest/api/snpLocation/{range}
 |===
 |Parameter|Description
 

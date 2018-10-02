@@ -57,8 +57,7 @@ public class ApiDocumentation {
     private RestDocumentationResultHandler restDocumentationResultHandler;
 
     // Ideally adding the rest.contextpath to the application.properties file the path is created automatically.
-    // This is still in labs. TODO when the class will be in production
-    @Value("${rest.contextpath:/gwas/labs}")
+    @Value("${rest.contextpath:/gwas}")
     private String contextPath;
 
     @Autowired
