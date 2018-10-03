@@ -30,7 +30,7 @@ For users interested primarily in the Study endpoint, we also provide a link:../
 [[overview-sample-scripts]]
 == Sample scripts
 
-A number of example Python scripts are available in the https://github.com/EBISPOT/goci/tree/2.x-beta/goci-python-scripts/api-sample-scripts[GWAS Catalog Github repository]. The scripts are designed to give you an idea of how to query the GWAS Catalog REST API. Feel free to reuse and adapt the code to meet your requirements.
+A number of example Python scripts are available in the https://github.com/EBISPOT/goci-rest/tree/master/goci-python-scripts/api-sample-scripts[GWAS Catalog Github repository]. The scripts are designed to give you an idea of how to query the GWAS Catalog REST API. Feel free to reuse and adapt the code to meet your requirements.
 
 Examples include retrieving association data by searching the Study endpoint for pubmedIds, the SingleNucleotidePolymorphism endpoint for rs Ids and the EfoTraits endpoint using ontology URIs, as well as retrieving studies from the EfoTraits endpoint using ontology URIs.
 
