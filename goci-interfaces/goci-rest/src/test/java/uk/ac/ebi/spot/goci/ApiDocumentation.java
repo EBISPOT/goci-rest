@@ -125,22 +125,22 @@ public class ApiDocumentation {
     public void errorExample() throws Exception {
         this.mockMvc
                 .perform(get("/error")
-                                 .requestAttr(RequestDispatcher.ERROR_STATUS_CODE, 400)
+                                 .requestAttr(RequestDispatcher.ERROR_STATUS_CODE, 404)
                                  .requestAttr(RequestDispatcher.ERROR_REQUEST_URI,
                                               "/notes")
                                  .requestAttr(RequestDispatcher.ERROR_MESSAGE,
-                                              "The tag 'https://www.ebi.ac.uk".concat(contextPath).concat("/rest/api/studies/123' does not exist")))
+                                              "The tag 'https://www.ebi.ac.uk".concat(contextPath).concat("/rest/api/studies/123' the resource did not exist")))
                 .andDo(print()).andExpect(status().isBadRequest())
-                .andExpect(jsonPath("error", is("Bad Request")))
+                .andExpect(jsonPath("error", is("Not Found")))
                 .andExpect(jsonPath("timestamp", is(notNullValue())))
-                .andExpect(jsonPath("status", is(400)))
+                .andExpect(jsonPath("status", is(404)))
                 .andExpect(jsonPath("path", is(notNullValue())))
                 .andDo(document("error-example",
                                 responseFields(
                                         fieldWithPath("error").description("The HTTP error that occurred, e.g. `Bad Request`"),
                                         fieldWithPath("message").description("A description of the cause of the error"),
                                         fieldWithPath("path").description("The path to which the request was made"),
-                                        fieldWithPath("status").description("The HTTP status code, e.g. `400`"),
+                                        fieldWithPath("status").description("The HTTP status code, e.g. `404`"),
                                         fieldWithPath("timestamp").description("The time, in milliseconds, at which the error occurred"))));
     }
 
