@@ -23,7 +23,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li th:classappend="${#httpServletRequest.getServletPath() == '/' ? 'active':''}"><a href="index.html" th:href="@{/}">Home
+                <li th:classappend="${#httpServletRequest.getServletPath() == '/gwas' ? 'active':''}"><a href="index.html" th:href="@{/}">Home
                     <span class="sr-only">(current)</span>
                 </a></li>
                 <li th:classappend="${#httpServletRequest.getServletPath() == '/search' ? 'active':''}"><a href='/gwas/search'>Search</a></li>
