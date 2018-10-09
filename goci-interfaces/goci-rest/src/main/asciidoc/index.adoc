@@ -14,4 +14,4 @@ link:sample-scripts[API usage examples]:: Sample scripts for users and developer
 
 http://www.ebi.ac.uk/gwas/docs[Website documentation]:: Documentation on the GWAS Catalog and how to use it
 
-https://github.com/EBISPOT/goci[The GWAS Catalog code base]:: All code for the GWAS Catalog infrastructure can be found in https://github.com/EBISPOT/goci[our Github repository]. The code is freely available under http://www.apache.org/licenses/LICENSE-2.0[the Apache version 2.0 license]
+https://github.com/EBISPOT/gwas-ui[The GWAS Catalog code base]:: All code for the GWAS Catalog infrastructure can be found in https://github.com/EBISPOT/gwas-ui[our Github repository]. The code is freely available under http://www.apache.org/licenses/LICENSE-2.0[the Apache version 2.0 license]
