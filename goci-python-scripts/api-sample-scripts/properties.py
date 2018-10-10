@@ -1,4 +1,4 @@
-base_url = "http://www.ebi.ac.uk/gwas/rest/api/"
+base_url = "https://www.ebi.ac.uk/gwas/rest/api/"
 
 studies = "studies/"
 pmidSearch = "search/findByPubmedId?pubmedId="
