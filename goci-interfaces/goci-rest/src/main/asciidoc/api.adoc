@@ -34,12 +34,17 @@ use of HTTP status codes.
 | `200 OK`
 | The request completed successfully
 
+| `301 Moved Permanently`
+| The URL has moved permanently. GWAS REST API uses https protocol.
+
 | `400 Bad Request`
 | The request was malformed. The response body will include an error providing further information
 
 | `404 Not Found`
 | The requested resource did not exist
 |===
+
+
 
 [[overview-errors]]
 == Errors
