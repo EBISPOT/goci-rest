@@ -1,8 +1,10 @@
 package uk.ac.ebi.spot.goci.repository;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
@@ -57,6 +59,12 @@ public interface SingleNucleotidePolymorphismRepository extends JpaRepository<Si
 
     @RestResource(path = "findByChromBpLocationRange", rel = "findByChromBpLocationRange")
     Page<SingleNucleotidePolymorphism> findByLocationsChromosomeNameAndLocationsChromosomePositionBetween(@Param("chrom") String chromosomeName, @Param("bpStart") int start, @Param("bpEnd") int end, Pageable pageable);
+
+    @Query("select new SingleNucleotidePolymorphism(snp.rsId) from SingleNucleotidePolymorphism snp join snp" +
+            ".locations loc where loc.chromosomeName " +
+            "=:chrom and" +
+            " loc.chromosomePosition >=:bpStart and loc.chromosomePosition <= :bpEnd")
+    Page<SingleNucleotidePolymorphism> findIdsByLocationsChromosomeNameAndLocationsChromosomePositionBetween(@Param("chrom") String chromosomeName, @Param("bpStart") int start, @Param("bpEnd") int end, Pageable pageable);
 
     @RestResource(exported = false)
     Collection<SingleNucleotidePolymorphism> findByRiskAllelesLociId(Long locusId);

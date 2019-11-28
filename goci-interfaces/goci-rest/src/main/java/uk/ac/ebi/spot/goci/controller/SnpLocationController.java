@@ -13,11 +13,7 @@ import org.springframework.hateoas.Resources;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import uk.ac.ebi.spot.goci.model.SingleNucleotidePolymorphism;
 import uk.ac.ebi.spot.goci.repository.SingleNucleotidePolymorphismRepository;
 
@@ -44,6 +40,7 @@ public class SnpLocationController {
                     method = RequestMethod.GET,
                     produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> search(@PathVariable String range,
+                                    @RequestParam(value="snpOnly", required = false) boolean snpOnly,
                                     @PageableDefault(size = 20, page = 0) Pageable pageable,
                                     final PersistentEntityResourceAssembler entityAssembler) {
 
@@ -53,13 +50,15 @@ public class SnpLocationController {
         int start = Integer.parseInt(locs.split("-")[0]);
         int end = Integer.parseInt(locs.split("-")[1]);
 
-        Page<SingleNucleotidePolymorphism>
-                snps =
-                singleNucleotidePolymorphismRepository.findByLocationsChromosomeNameAndLocationsChromosomePositionBetween(
-                        chrom,
-                        start,
-                        end,
-                        pageable);
+        Page<SingleNucleotidePolymorphism> snps = null;
+        if (snpOnly) {
+            snps = singleNucleotidePolymorphismRepository
+                    .findIdsByLocationsChromosomeNameAndLocationsChromosomePositionBetween(chrom, start, end, pageable);
+
+        } else {
+            snps = singleNucleotidePolymorphismRepository
+                    .findByLocationsChromosomeNameAndLocationsChromosomePositionBetween(chrom, start, end, pageable);
+        }
 
         Resources<Resource<SingleNucleotidePolymorphism>> resource = snpAssembler.toResource(snps, entityAssembler);
 
