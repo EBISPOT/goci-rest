@@ -111,12 +111,15 @@ public class ParentMappingController {
         RestTemplate restTemplate = new RestTemplate();
         String efoObject = null;
         try{
-           efoObject  = restTemplate.getForObject(uri, String.class);
-
+           ResponseEntity<String> response = restTemplate.getForEntity(uri, String.class);
+           efoObject  = response.getBody();
+            System.out.println(efoObject);
         }
         catch (HttpClientErrorException ex){
              result.put("message", "Term ".concat(efoTerm).concat(" not found in EFO"));
             result.put("iri", efoTerm);
+        }catch(Exception e){
+            e.printStackTrace();
         }
 
 
