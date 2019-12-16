@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 import uk.ac.ebi.spot.goci.model.Association;
+import uk.ac.ebi.spot.goci.model.projection.AssociationProjection;
 
 import java.util.Collection;
 import java.util.List;
@@ -21,7 +22,7 @@ import java.util.List;
  *         <p>
  *         Repository accessing Association entity object
  */
-@RepositoryRestResource
+@RepositoryRestResource(excerptProjection = AssociationProjection.class)
 public interface AssociationRepository extends JpaRepository<Association, Long> {
     @RestResource(exported = false)
     Collection<Association> findByStudyId(long studyId);

@@ -42,6 +42,14 @@ public class EfoTrait {
 
     public EfoTrait(String trait,
                     String uri,
+                    String shortForm) {
+        this.trait = trait;
+        this.uri = uri;
+        this.shortForm = shortForm;
+    }
+
+    public EfoTrait(String trait,
+                    String uri,
                     String shortForm,
                     Collection<Study> studies,
                     Collection<Association> associations) {

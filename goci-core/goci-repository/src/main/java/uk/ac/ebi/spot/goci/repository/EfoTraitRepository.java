@@ -4,9 +4,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.annotation.RestResource;
 import uk.ac.ebi.spot.goci.model.EfoTrait;
+import uk.ac.ebi.spot.goci.model.projection.EfoTraitProjection;
 
 import java.util.List;
 
@@ -57,6 +59,11 @@ public interface EfoTraitRepository extends JpaRepository<EfoTrait, Long> {
 
     @RestResource(path = "findByEfoTrait", rel = "findByEfoTrait")
     Page<EfoTrait> findByTraitIgnoreCase(String trait, Pageable pageable);
+
+    @RestResource(exported = false)
+    @Query("select new EfoTrait(efo.trait, efo.uri, efo.shortForm) from EfoTrait efo where efo" +
+            ".shortForm = :trait")
+    Page<EfoTrait> findByTraitIgnoreCaseProjection(String trait, Pageable pageable);
 
     @RestResource(exported = false)
     EfoTrait findByTraitIgnoreCase(String trait);
