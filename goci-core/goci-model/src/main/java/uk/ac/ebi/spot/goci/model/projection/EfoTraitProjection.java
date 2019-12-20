@@ -1,6 +1,5 @@
 package uk.ac.ebi.spot.goci.model.projection;
 
-import lombok.Data;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.rest.core.config.Projection;
 import uk.ac.ebi.spot.goci.model.EfoTrait;

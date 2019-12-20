@@ -2,7 +2,6 @@ package uk.ac.ebi.spot.goci.model.projection;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Data;
 import org.hibernate.annotations.Where;
 import org.springframework.data.rest.core.config.Projection;
 import org.springframework.format.annotation.DateTimeFormat;

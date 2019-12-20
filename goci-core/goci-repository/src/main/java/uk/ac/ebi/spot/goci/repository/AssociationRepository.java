@@ -22,7 +22,7 @@ import java.util.List;
  *         <p>
  *         Repository accessing Association entity object
  */
-@RepositoryRestResource(excerptProjection = AssociationProjection.class)
+@RepositoryRestResource
 public interface AssociationRepository extends JpaRepository<Association, Long> {
     @RestResource(exported = false)
     Collection<Association> findByStudyId(long studyId);
