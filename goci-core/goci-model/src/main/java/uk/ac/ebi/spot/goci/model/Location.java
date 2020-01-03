@@ -23,7 +23,7 @@ public class Location {
 
     private String chromosomeName;
 
-    private Integer chromosomePosition;
+    private Long chromosomePosition;
 
     @ManyToOne
     @JsonManagedReference
@@ -37,7 +37,7 @@ public class Location {
     public Location() {}
 
     public Location(String chromosomeName,
-                    Integer chromosomePosition,
+                    Long chromosomePosition,
                     Region region) {
         this.chromosomeName = chromosomeName;
         this.chromosomePosition = chromosomePosition;
@@ -61,11 +61,11 @@ public class Location {
         this.chromosomeName = chromosomeName;
     }
 
-    public Integer getChromosomePosition() {
+    public Long getChromosomePosition() {
         return chromosomePosition;
     }
 
-    public void setChromosomePosition(Integer chromosomePosition) {
+    public void setChromosomePosition(Long chromosomePosition) {
         this.chromosomePosition = chromosomePosition;
     }
 

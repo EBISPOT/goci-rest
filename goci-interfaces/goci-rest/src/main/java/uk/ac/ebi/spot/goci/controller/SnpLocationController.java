@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.*;
 import uk.ac.ebi.spot.goci.model.SingleNucleotidePolymorphism;
 import uk.ac.ebi.spot.goci.repository.SingleNucleotidePolymorphismRepository;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 
 /**
  * Created by dwelter on 19/09/17.
@@ -42,13 +45,14 @@ public class SnpLocationController {
     public ResponseEntity<?> search(@PathVariable String range,
                                     @RequestParam(value="snpOnly", required = false) boolean snpOnly,
                                     @PageableDefault(size = 20, page = 0) Pageable pageable,
-                                    final PersistentEntityResourceAssembler entityAssembler) {
+                                    final PersistentEntityResourceAssembler entityAssembler)
+            throws UnsupportedEncodingException {
 
         String chrom = range.split(":")[0];
         String locs = range.split(":")[1];
 
-        int start = Integer.parseInt(locs.split("-")[0]);
-        int end = Integer.parseInt(locs.split("-")[1]);
+        long start = Long.parseLong(locs.split("-")[0]);
+        long end = Long.parseLong(locs.split("-")[1]);
 
         Page<SingleNucleotidePolymorphism> snps = null;
         if (snpOnly) {
@@ -63,7 +67,8 @@ public class SnpLocationController {
         Resources<Resource<SingleNucleotidePolymorphism>> resource = snpAssembler.toResource(snps, entityAssembler);
 
         for(Resource<SingleNucleotidePolymorphism> snpres : resource.getContent())  {
-            LinkBuilder link = configuration.entityLinks().linkForSingleResource(SingleNucleotidePolymorphism.class, snpres.getContent().getRsId());
+            LinkBuilder link = configuration.entityLinks().linkForSingleResource(SingleNucleotidePolymorphism.class,
+                    URLEncoder.encode(snpres.getContent().getRsId(), "UTF-8"));
             snpres.add(link.slash("/associations?projection=associationBySnp").withRel("associationsBySnpSummary"));
         }
 
