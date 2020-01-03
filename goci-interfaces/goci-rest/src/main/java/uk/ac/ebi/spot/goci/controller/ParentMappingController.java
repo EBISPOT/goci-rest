@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
@@ -28,6 +29,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Created by dwelter on 03/02/17.
@@ -47,6 +51,9 @@ public class ParentMappingController {
 
     @Value("${ols.fullIri}")
     private String olsFullIri;
+
+    @Autowired
+    ObjectMapper mapper;
 
     private Logger log = LoggerFactory.getLogger(getClass());
 
@@ -80,18 +87,16 @@ public class ParentMappingController {
                     method = RequestMethod.POST,
                     consumes = "application/json",
                     produces = MediaType.APPLICATION_JSON_VALUE)
-    public HttpEntity<List<EfoColourMap>> getColourMappings(@RequestBody List<String> efoTerms) throws IOException {
+    public HttpEntity<List<EfoColourMap>> getColourMappings(@RequestBody List<String> efoTerms)
+            throws IOException, InterruptedException {
         List<EfoColourMap> colours = new ArrayList<>();
 
+        ExecutorService taskExecutor = Executors.newFixedThreadPool(1);
+        CountDownLatch latch = new CountDownLatch(efoTerms.size());
         for(String efoTerm : efoTerms) {
-            Map<String, String> ancestors = getAncestors(efoTerm);
-            if(ancestors.get("message") == null) {
-                colours.add(getTraitColour(ancestors.get("ancestors"), ancestors.get("iri"), ancestors.get("label")));
-            }
-            else {
-                colours.add(new EfoColourMap(ancestors.get("iri"),  null, null, null, null, null, ancestors.get("message")));
-            }
+            taskExecutor.execute(new EfoThread(efoTerm, colours, latch));
         }
+        latch.await();
 
         return new ResponseEntity<List<EfoColourMap>>(colours, HttpStatus.OK);
     }
@@ -113,7 +118,7 @@ public class ParentMappingController {
         try{
            ResponseEntity<String> response = restTemplate.getForEntity(uri, String.class);
            efoObject  = response.getBody();
-            System.out.println(efoObject);
+            //System.out.println(efoObject);
         }
         catch (HttpClientErrorException ex){
              result.put("message", "Term ".concat(efoTerm).concat(" not found in EFO"));
@@ -125,7 +130,6 @@ public class ParentMappingController {
 
 
         if(efoObject != null){
-            ObjectMapper mapper = new ObjectMapper();
             JsonNode node = mapper.readTree(efoObject);
             JsonNode responseNode = node.get("_embedded").get("terms").get(0);
 
@@ -218,7 +222,6 @@ public class ParentMappingController {
         Map<String, String> allAncestors = new HashMap();
 
         if(ancestors != null){
-            ObjectMapper mapper = new ObjectMapper();
             JsonNode node = mapper.readTree(ancestors);
 
             JsonNode terms = node.get("_embedded").get("terms");
@@ -234,5 +237,34 @@ public class ParentMappingController {
         }
 
         return allAncestors;
+    }
+
+    private class EfoThread extends Thread{
+        private final String efoTerm;
+        private final CountDownLatch latch;
+        private List<EfoColourMap> colours;
+
+        public EfoThread(String efoTerm, List<EfoColourMap> colours, CountDownLatch latch){
+            this.efoTerm = efoTerm;
+            this.colours = colours;
+            this.latch = latch;
+        }
+        @Override
+        public void run() {
+            Map<String, String> ancestors = null;
+            try {
+                ancestors = getAncestors(efoTerm);
+                if(ancestors.get("message") == null) {
+                    colours.add(getTraitColour(ancestors.get("ancestors"), ancestors.get("iri"), ancestors.get("label")));
+                }
+                else {
+                    colours.add(new EfoColourMap(ancestors.get("iri"),  null, null, null, null, null, ancestors.get("message")));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }finally{
+                latch.countDown();
+            }
+        }
     }
 }
