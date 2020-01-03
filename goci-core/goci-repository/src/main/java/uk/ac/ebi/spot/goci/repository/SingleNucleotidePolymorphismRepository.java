@@ -58,13 +58,14 @@ public interface SingleNucleotidePolymorphismRepository extends JpaRepository<Si
 //    List<SingleNucleotidePolymorphism> findByLocationsChromosomeNameAndLocationsChromosomePositionBetween(@Param("chrom") String chromosomeName, @Param("bpStart") int start, @Param("bpEnd") int end);
 
     @RestResource(path = "findByChromBpLocationRange", rel = "findByChromBpLocationRange")
-    Page<SingleNucleotidePolymorphism> findByLocationsChromosomeNameAndLocationsChromosomePositionBetween(@Param("chrom") String chromosomeName, @Param("bpStart") int start, @Param("bpEnd") int end, Pageable pageable);
+    Page<SingleNucleotidePolymorphism> findByLocationsChromosomeNameAndLocationsChromosomePositionBetween(@Param(
+            "chrom") String chromosomeName, @Param("bpStart") long start, @Param("bpEnd") long end, Pageable pageable);
 
     @Query("select new SingleNucleotidePolymorphism(snp.rsId) from SingleNucleotidePolymorphism snp join snp" +
             ".locations loc where loc.chromosomeName " +
             "=:chrom and" +
             " loc.chromosomePosition >=:bpStart and loc.chromosomePosition <= :bpEnd")
-    Page<SingleNucleotidePolymorphism> findIdsByLocationsChromosomeNameAndLocationsChromosomePositionBetween(@Param("chrom") String chromosomeName, @Param("bpStart") int start, @Param("bpEnd") int end, Pageable pageable);
+    Page<SingleNucleotidePolymorphism> findIdsByLocationsChromosomeNameAndLocationsChromosomePositionBetween(@Param("chrom") String chromosomeName, @Param("bpStart") long start, @Param("bpEnd") long end, Pageable pageable);
 
     @RestResource(exported = false)
     Collection<SingleNucleotidePolymorphism> findByRiskAllelesLociId(Long locusId);
