@@ -91,7 +91,7 @@ public class ParentMappingController {
             throws IOException, InterruptedException {
         List<EfoColourMap> colours = new ArrayList<>();
 
-        ExecutorService taskExecutor = Executors.newFixedThreadPool(1);
+        ExecutorService taskExecutor = Executors.newFixedThreadPool(3);
         CountDownLatch latch = new CountDownLatch(efoTerms.size());
         for(String efoTerm : efoTerms) {
             taskExecutor.execute(new EfoThread(efoTerm, colours, latch));

@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.restdocs.JUnitRestDocumentation;
 import org.springframework.restdocs.mockmvc.RestDocumentationResultHandler;
 import org.springframework.restdocs.payload.ResponseFieldsSnippet;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -47,7 +48,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-@Ignore
+//@Ignore
 public class ApiDocumentation {
 
     @Rule
@@ -130,7 +131,8 @@ public class ApiDocumentation {
                                               "/notes")
                                  .requestAttr(RequestDispatcher.ERROR_MESSAGE,
                                               "The tag 'https://www.ebi.ac.uk".concat(contextPath).concat("/rest/api/studies/123' the resource did not exist")))
-                .andDo(print()).andExpect(status().isBadRequest())
+                //.andDo(print()).andExpect(status().isBadRequest())
+                .andDo(print()).andExpect(status().isNotFound())
                 .andExpect(jsonPath("error", is("Not Found")))
                 .andExpect(jsonPath("timestamp", is(notNullValue())))
                 .andExpect(jsonPath("status", is(404)))
@@ -334,7 +336,9 @@ public class ApiDocumentation {
                               linkWithRel("findByEfoTrait").description("Search for SNPs via a study using parameter efoTrait"),
                               linkWithRel("findByChromBpLocationRange").description("Search for SNPs on a certain chromosome and within a given base pair location range"),
                               linkWithRel("findByPubmedId").description("Search for SNPs via a study using parameter pubmedId"),
-                              linkWithRel("findByGene").description("Search for SNPs via a gene using parameter geneName")
+                              linkWithRel("findByGene").description("Search for SNPs via a gene using parameter " +
+                                      "geneName"),
+                                linkWithRel("findIdsByLocationsChromosomeNameAndLocationsChromosomePositionBetween").description("Search for SNP IDs on a certain chromosome and within a given base pair location range")
                         )
                 ))
                 .andExpect(status().isOk());
