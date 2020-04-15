@@ -2,7 +2,7 @@
 ----
 HTTP/1.1 200 OK
 Content-Type: application/hal+json;charset=UTF-8
-Content-Length: 3262
+Content-Length: 3297
 
 {
   "_embedded" : {
@@ -68,14 +68,14 @@ Content-Length: 3262
         "associationsByStudySummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000841/associations?projection=associationByStudy"
         },
+        "snps" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000841/snps"
+        },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000841/efoTraits"
         },
         "associations" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000841/associations"
-        },
-        "snps" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000841/snps"
         }
       }
     } ]
@@ -94,7 +94,7 @@ Content-Length: 3262
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies?page=2&size=1"
     },
     "last" : {
-      "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies?page=5698&size=1"
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies?page=9075&size=1"
     },
     "profile" : {
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/profile/studies"
@@ -105,8 +105,8 @@ Content-Length: 3262
   },
   "page" : {
     "size" : 1,
-    "totalElements" : 5699,
-    "totalPages" : 5699,
+    "totalElements" : 9076,
+    "totalPages" : 9076,
     "number" : 1
   }
 }

@@ -2,7 +2,7 @@
 ----
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 2770
+Content-Length: 2827
 
 {
   "initialSampleSize" : "3,117 European ancestry Bipolar disorder cases, 1,273 European ancestry Major depressive disorder cases",
@@ -86,14 +86,14 @@ Content-Length: 2770
     "associationsByStudySummary" : {
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000854/associations?projection=associationByStudy"
     },
+    "snps" : {
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000854/snps"
+    },
     "efoTraits" : {
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000854/efoTraits"
     },
     "associations" : {
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000854/associations"
-    },
-    "snps" : {
-      "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000854/snps"
     }
   }
 }

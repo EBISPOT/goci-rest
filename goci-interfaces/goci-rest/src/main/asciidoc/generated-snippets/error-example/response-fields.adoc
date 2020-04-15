@@ -15,7 +15,7 @@
 
 |`status`
 |`Number`
-|The HTTP status code, e.g. `400`
+|The HTTP status code, e.g. `404`
 
 |`timestamp`
 |`Number`

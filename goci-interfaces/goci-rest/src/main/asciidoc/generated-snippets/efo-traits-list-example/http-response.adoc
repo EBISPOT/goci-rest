@@ -2,7 +2,7 @@
 ----
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 17502
+Content-Length: 18302
 
 {
   "_embedded" : {
@@ -15,7 +15,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001060"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001060"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001060{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001060/associations?projection=associationByEfoTrait"
@@ -36,7 +37,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001065"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001065"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001065{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001065/associations?projection=associationByEfoTrait"
@@ -57,7 +59,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001068"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001068"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001068{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001068/associations?projection=associationByEfoTrait"
@@ -78,7 +81,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001071"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001071"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001071{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001071/associations?projection=associationByEfoTrait"
@@ -99,7 +103,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005133"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005133"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005133{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005133/associations?projection=associationByEfoTrait"
@@ -120,7 +125,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005130"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005130"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005130{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005130/associations?projection=associationByEfoTrait"
@@ -141,7 +147,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005119"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005119"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005119{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005119/associations?projection=associationByEfoTrait"
@@ -162,7 +169,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005108"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005108"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005108{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005108/associations?projection=associationByEfoTrait"
@@ -183,7 +191,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005117"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005117"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005117{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005117/associations?projection=associationByEfoTrait"
@@ -204,7 +213,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005109"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005109"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005109{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005109/associations?projection=associationByEfoTrait"
@@ -225,7 +235,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005110"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005110"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005110{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005110/associations?projection=associationByEfoTrait"
@@ -246,7 +257,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005111"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005111"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005111{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005111/associations?projection=associationByEfoTrait"
@@ -267,7 +279,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005112"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005112"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005112{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005112/associations?projection=associationByEfoTrait"
@@ -288,7 +301,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005114"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005114"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005114{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005114/associations?projection=associationByEfoTrait"
@@ -309,7 +323,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005118"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005118"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005118{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005118/associations?projection=associationByEfoTrait"
@@ -330,7 +345,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005115"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005115"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005115{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005115/associations?projection=associationByEfoTrait"
@@ -351,7 +367,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005116"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005116"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005116{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005116/associations?projection=associationByEfoTrait"
@@ -372,7 +389,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005134"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005134"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005134{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005134/associations?projection=associationByEfoTrait"
@@ -393,7 +411,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005106"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005106"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005106{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0005106/associations?projection=associationByEfoTrait"
@@ -414,7 +433,8 @@ Content-Length: 17502
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0003939"
         },
         "efoTrait" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0003939"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0003939{?projection}",
+          "templated" : true
         },
         "associationsByTraitSummary" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0003939/associations?projection=associationByEfoTrait"
@@ -439,7 +459,7 @@ Content-Length: 17502
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits?page=1&size=20"
     },
     "last" : {
-      "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits?page=112&size=20"
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits?page=157&size=20"
     },
     "profile" : {
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/profile/efoTraits"
@@ -450,8 +470,8 @@ Content-Length: 17502
   },
   "page" : {
     "size" : 20,
-    "totalElements" : 2243,
-    "totalPages" : 113,
+    "totalElements" : 3155,
+    "totalPages" : 158,
     "number" : 0
   }
 }
