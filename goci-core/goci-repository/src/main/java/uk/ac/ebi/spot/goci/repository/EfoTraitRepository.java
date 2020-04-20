@@ -69,6 +69,7 @@ public interface EfoTraitRepository extends JpaRepository<EfoTrait, Long> {
     @RestResource(exported = false)
     EfoTrait findByTraitIgnoreCase(String trait);
 
+    @CrossOrigin
     @RestResource
     EfoTrait findByShortForm(String shortForm);
 
