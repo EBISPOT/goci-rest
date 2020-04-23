@@ -2,7 +2,7 @@
 ----
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 746
+Content-Length: 782
 
 {
   "trait" : "celiac disease",
@@ -13,7 +13,8 @@ Content-Length: 746
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001060"
     },
     "efoTrait" : {
-      "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001060"
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001060{?projection}",
+      "templated" : true
     },
     "associationsByTraitSummary" : {
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits/EFO_0001060/associations?projection=associationByEfoTrait"

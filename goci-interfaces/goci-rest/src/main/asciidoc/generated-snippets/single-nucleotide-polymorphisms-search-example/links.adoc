@@ -25,4 +25,7 @@
 |`findByGene`
 |Search for SNPs via a gene using parameter geneName
 
+|`findIdsByLocationsChromosomeNameAndLocationsChromosomePositionBetween`
+|Search for SNP IDs on a certain chromosome and within a given base pair location range
+
 |===

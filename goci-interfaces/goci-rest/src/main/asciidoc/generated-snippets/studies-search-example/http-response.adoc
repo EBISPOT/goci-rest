@@ -2,16 +2,20 @@
 ----
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 1450
+Content-Length: 1444
 
 {
   "_links" : {
+    "findByDiseaseTrait" : {
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/search/findByDiseaseTrait{?diseaseTrait,page,size,sort,projection}",
+      "templated" : true
+    },
     "findByPublicationIdPubmedId" : {
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/search/findByPublicationIdPubmedId{?pubmedId,page,size,sort,projection}",
       "templated" : true
     },
-    "findByDiseaseTrait" : {
-      "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/search/findByDiseaseTrait{?diseaseTrait,page,size,sort,projection}",
+    "findByEfoTrait" : {
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/search/findByEfoTrait{?efoTrait,page,size,sort,projection}",
       "templated" : true
     },
     "findByAccessionId" : {
@@ -20,10 +24,6 @@ Content-Length: 1450
     },
     "findByUserRequested" : {
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/search/findByUserRequested{?userRequested,page,size,sort,projection}",
-      "templated" : true
-    },
-    "findByEfoTrait" : {
-      "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/search/findByEfoTrait{?efoTrait,page,size,sort,projection}",
       "templated" : true
     },
     "findByEfoUri" : {

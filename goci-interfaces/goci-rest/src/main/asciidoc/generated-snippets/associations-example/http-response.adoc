@@ -2,7 +2,7 @@
 ----
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 2069
+Content-Length: 2186
 
 {
   "riskFrequency" : "NR",
@@ -28,11 +28,13 @@ Content-Length: 2069
       "genomeWide" : false,
       "limitedList" : false,
       "_links" : {
-        "proxySnps" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/singleNucleotidePolymorphisms/NR"
-        },
         "snp" : {
-          "href" : "https://www.ebi.ac.uk/gwas/rest/api/singleNucleotidePolymorphisms/rs16890979"
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/singleNucleotidePolymorphisms/rs16890979{?projection}",
+          "templated" : true
+        },
+        "proxySnps" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/singleNucleotidePolymorphisms/NR{?projection}",
+          "templated" : true
         }
       }
     } ],
@@ -52,8 +54,8 @@ Content-Length: 2069
       }
     }
   } ],
-  "lastMappingDate" : "2018-04-17T00:07:52.000+0000",
-  "lastUpdateDate" : "2018-04-17T00:07:52.000+0000",
+  "lastMappingDate" : "2019-11-13T16:44:41.000+0000",
+  "lastUpdateDate" : "2019-11-13T16:44:41.000+0000",
   "pvalue" : 3.0000000000000002E-18,
   "_links" : {
     "self" : {
@@ -63,14 +65,14 @@ Content-Length: 2069
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/associations/16510553{?projection}",
       "templated" : true
     },
-    "study" : {
-      "href" : "https://www.ebi.ac.uk/gwas/rest/api/associations/16510553/study"
-    },
     "snps" : {
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/associations/16510553/snps"
     },
     "efoTraits" : {
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/associations/16510553/efoTraits"
+    },
+    "study" : {
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/associations/16510553/study"
     }
   }
 }

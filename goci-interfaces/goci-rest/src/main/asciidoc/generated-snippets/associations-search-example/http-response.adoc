@@ -2,12 +2,12 @@
 ----
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 1036
+Content-Length: 1032
 
 {
   "_links" : {
-    "findByEfoTrait" : {
-      "href" : "https://www.ebi.ac.uk/gwas/rest/api/associations/search/findByEfoTrait{?efoTrait,projection}",
+    "findByRsIdAndAccessionId" : {
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/associations/search/findByRsIdAndAccessionId{?rsId,accessionId,page,size,sort,projection}",
       "templated" : true
     },
     "findByPubmedId" : {
@@ -22,8 +22,8 @@ Content-Length: 1036
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/associations/search/findByStudyAccessionId{?accessionId,projection}",
       "templated" : true
     },
-    "findByRsIdAndAccessionId" : {
-      "href" : "https://www.ebi.ac.uk/gwas/rest/api/associations/search/findByRsIdAndAccessionId{?rsId,accessionId,page,size,sort,projection}",
+    "findByEfoTrait" : {
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/associations/search/findByEfoTrait{?efoTrait,projection}",
       "templated" : true
     },
     "self" : {
