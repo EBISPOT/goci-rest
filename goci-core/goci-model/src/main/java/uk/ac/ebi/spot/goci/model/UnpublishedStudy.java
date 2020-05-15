@@ -26,35 +26,69 @@ public class UnpublishedStudy {
     private Long id;
     @JsonProperty("study_tag")
     private String studyTag;
+
+    @JsonProperty("study_accession")
     private String accession;
+
     @JsonProperty("genotyping_technology")
-        private String genotypingTechnology;
+    private String genotypingTechnology;
+
     @JsonProperty("array_manufacturer")
     private String arrayManufacturer;
-//    private String arrayInformation;
-//    private Boolean imputation;
-//    private Integer variantCount;
-//    private String sampleDescription;
+
+    @JsonProperty("array_information")
+    private String arrayInformation;
+
+    @JsonProperty("imputation")
+    private Boolean imputation;
+
+    @JsonProperty("variant_count")
+    private Integer variantCount;
+
+    @JsonProperty("sample_description")
+    private String sampleDescription;
+
     @JsonProperty("statistical_model")
     private String statisticalModel;
-//    private String studyDescription;
+
+    @JsonProperty("study_description")
+    private String studyDescription;
+
+    @JsonProperty("trait")
     private String trait;
-    //    private String efoTrait;
+
+    @JsonProperty("efo_trait")
+    private String efoTrait;
+
     @JsonProperty("background_trait")
     private String backgroundTrait;
-    //    private String backgroundEfoTrait;
+
+    @JsonProperty("background_efo_trait")
+    private String backgroundEfoTrait;
+
+    @JsonProperty("checksum")
     private String checksum;
-    @Column(name = "summary_stats_file")
-    private String summaryStatisticsFile;
+
+    @JsonProperty("summary_statistics_file")
+    private String summaryStatsFile;
+
     @JsonProperty("submission_id")
     private String submissionId;
+
     @JsonProperty("globus_folder")
     private String globusFolder;
-    //    private String summaryStatisticsAssembly;
-//    private String cohort;
-//    private String cohortId;
-    @JsonProperty("created_date")
+
+    @JsonProperty("summary_statistics_assembly")
+    private String sumStatsAssembly;
+
+    @JsonProperty("cohort")
+    private String cohort;
+
+    @JsonProperty("cohort_id")
+    private String cohortId;
+
     private Date createdDate;
+
     @Transient
     private String file;
 

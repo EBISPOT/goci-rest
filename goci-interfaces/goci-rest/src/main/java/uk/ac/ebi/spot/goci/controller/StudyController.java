@@ -37,7 +37,7 @@ public class StudyController {
          Collection<UnpublishedStudy> studies = studyRepository.findAll();
          studies.forEach(unpublishedStudy -> {
              unpublishedStudy.setFile(unpublishedStudy.getSubmissionId() +
-                             "/" + unpublishedStudy.getAccession() + "_" + unpublishedStudy.getSummaryStatisticsFile());
+                             "/" + unpublishedStudy.getAccession() + "_" + unpublishedStudy.getSummaryStatsFile());
          });
         return ResponseEntity.ok(studies);
 
