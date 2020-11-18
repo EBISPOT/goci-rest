@@ -1,7 +1,5 @@
 package uk.ac.ebi.spot.goci.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -23,6 +21,7 @@ public abstract class Note {
     @OneToOne
     private NoteSubject noteSubject;
 
+    @Lob
     @NotNull
     private String textNote;
 
@@ -95,13 +94,21 @@ public abstract class Note {
         this.noteSubject = noteSubject;
     }
 
-    public Boolean getStatus() { return status; }
+    public Boolean getStatus() {
+        return status;
+    }
 
-    public void setStatus(Boolean status) { this.status = status; }
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
 
-    public Curator getCurator() { return curator; }
+    public Curator getCurator() {
+        return curator;
+    }
 
-    public void setCurator(Curator curator) { this.curator = curator; }
+    public void setCurator(Curator curator) {
+        this.curator = curator;
+    }
 
     public Long getGenericId() {
         return genericId;
@@ -140,7 +147,8 @@ public abstract class Note {
      *
      * @return a string representation of the object.
      */
-    @Override public String toString() {
+    @Override
+    public String toString() {
         StringBuilder sb = new StringBuilder();
         String sp = "   ";
         sb.append(this.textNote).append(sp)
