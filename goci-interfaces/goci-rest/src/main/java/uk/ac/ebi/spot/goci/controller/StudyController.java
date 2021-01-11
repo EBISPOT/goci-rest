@@ -36,7 +36,7 @@ public class StudyController {
     public ResponseEntity<?> getUnpublishedStudies(final PersistentEntityResourceAssembler entityAssembler) {
          Collection<UnpublishedStudy> studies = studyRepository.findAll();
          studies.forEach(unpublishedStudy -> {
-             unpublishedStudy.setFile("/" + unpublishedStudy.getAccession() + "/" + unpublishedStudy.getAccession() + ".tsv");
+             unpublishedStudy.setFile("/" + unpublishedStudy.getAccession() + "/");
          });
         return ResponseEntity.ok(studies);
 
