@@ -5,14 +5,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.annotations.Where;
-import org.hibernate.validator.constraints.NotBlank;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 
 
 /**
@@ -41,10 +36,6 @@ public class Study implements Trackable {
     private Boolean gxe = false;
 
     private Boolean gxg = false;
-
-//    private Boolean genomewideArray = true;
-//
-//    private Boolean targetedArray = false;
 
     private Integer snpCount;
 

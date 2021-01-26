@@ -20,6 +20,7 @@ import java.util.*;
  */
 @Entity
 public class Publication {
+
     @Id
     @GeneratedValue
     private Long id;
@@ -29,7 +30,7 @@ public class Publication {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     @NotNull(message = "Please enter a study date in format YYYY-MM-DD")
-    @JsonFormat(pattern="YYYY-MM-dd")
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="BST")
     private Date publicationDate;
 
     @NotBlank(message = "Please enter a publication")
