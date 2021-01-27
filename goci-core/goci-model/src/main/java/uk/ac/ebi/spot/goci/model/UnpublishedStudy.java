@@ -103,4 +103,7 @@ public class UnpublishedStudy {
     @JsonManagedReference
     private Collection<UnpublishedAncestry> unpublishedAncestries;
 
+    public String getFile() {
+        return String.format("/%s/", this.getAccession());
+    }
 }
