@@ -6,7 +6,7 @@
 
     <groupId>uk.ac.ebi.spot</groupId>
     <artifactId>goci-rest-api</artifactId>
-    <version>1.1.2</version>
+    <version>1.2.0</version>
 
     <packaging>pom</packaging>
     <name>GOCI REST API (root)</name>
