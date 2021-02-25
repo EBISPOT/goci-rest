@@ -85,9 +85,7 @@ public class UnpublishedStudy {
 
     @JsonProperty("cohort_id")
     private String cohortId;
-
- /*   @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="BST")*/ //Commenting due to Python code braking in Data release
+    
     private Date createdDate;
 
     @Transient
