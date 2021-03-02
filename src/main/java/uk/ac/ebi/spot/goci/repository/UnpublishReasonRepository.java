@@ -12,5 +12,4 @@ public interface UnpublishReasonRepository extends JpaRepository<UnpublishReason
 
     UnpublishReason findByReason(String reason);
 
-    UnpublishReason findById(Long id);
 }
