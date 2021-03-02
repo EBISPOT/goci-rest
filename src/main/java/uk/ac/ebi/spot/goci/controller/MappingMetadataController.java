@@ -33,10 +33,10 @@ public class MappingMetadataController {
 
         Collection<MappingMetadata> latest = mappingMetadataRepository.getLatestMapping();
 
-        Resources<MappingMetadata> resources = new Resources<MappingMetadata>(latest);
+//        Resources<MappingMetadata> resources = new Resources<MappingMetadata>(latest);
 
-              return ResponseEntity.ok(resources);
-
+        //      return ResponseEntity.ok(resources);
+        return ResponseEntity.ok(latest);
 
     }
 

@@ -62,15 +62,15 @@ public class SnpLocationController {
         }
 
 
-                Resources<Resource<SingleNucleotidePolymorphism>> resource = snpAssembler.toResource(snps, entityAssembler);
+        //        Resources<Resource<SingleNucleotidePolymorphism>> resource = snpAssembler.toResource(snps, entityAssembler);
+//
+//        for(Resource<SingleNucleotidePolymorphism> snpres : resource.getContent())  {
+//            LinkBuilder link = configuration.entityLinks().linkForSingleResource(SingleNucleotidePolymorphism.class,
+//                                                                                 URLEncoder.encode(snpres.getContent().getRsId(), "UTF-8"));
+//            snpres.add(link.slash("/associations?projection=associationBySnp").withRel("associationsBySnpSummary"));
+//        }
 
-        for(Resource<SingleNucleotidePolymorphism> snpres : resource.getContent())  {
-            LinkBuilder link = configuration.entityLinks().linkForSingleResource(SingleNucleotidePolymorphism.class,
-                                                                                 URLEncoder.encode(snpres.getContent().getRsId(), "UTF-8"));
-            snpres.add(link.slash("/associations?projection=associationBySnp").withRel("associationsBySnpSummary"));
-        }
-
-        return new ResponseEntity(resource, HttpStatus.OK);
+        return new ResponseEntity(snps, HttpStatus.OK);
 
     }
 }
