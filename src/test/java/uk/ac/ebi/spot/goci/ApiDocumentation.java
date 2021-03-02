@@ -1,9 +1,8 @@
 package uk.ac.ebi.spot.goci;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.restdocs.JUnitRestDocumentation;
 import org.springframework.restdocs.mockmvc.RestDocumentationResultHandler;
 import org.springframework.restdocs.payload.ResponseFieldsSnippet;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -40,12 +40,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  */
 
 
-@RunWith(SpringRunner.class)
+@ExtendWith(SpringExtension.class)
 @SpringBootTest
 //@Ignore
 public class ApiDocumentation {
 
-    @Rule
+    //@Rule
     public final JUnitRestDocumentation
             restDocumentation = new JUnitRestDocumentation("src/main/asciidoc/generated-snippets");
 
@@ -70,7 +70,7 @@ public class ApiDocumentation {
             fieldWithPath("numberOfElements").optional().description("Number of elements on this page"),
             fieldWithPath("sort").optional().description("Sort order of the page"));
 
-    @Before
+    @BeforeEach
     public void setUp() {
         this.restDocumentationResultHandler = document("{method-name}",
                                                        preprocessRequest(prettyPrint()),
