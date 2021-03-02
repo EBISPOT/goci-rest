@@ -60,7 +60,7 @@ public interface SingleNucleotidePolymorphismRepository extends JpaRepository<Si
     Page<SingleNucleotidePolymorphism> findByLocationsChromosomeNameAndLocationsChromosomePositionBetween(@Param(
             "chrom") String chromosomeName, @Param("bpStart") long start, @Param("bpEnd") long end, Pageable pageable);
 
-    @Query("select new SingleNucleotidePolymorphism(snp.rsId) from SingleNucleotidePolymorphism snp join snp" +
+    @Query("select snp.rsId from SingleNucleotidePolymorphism snp join snp" +
             ".locations loc where loc.chromosomeName " +
             "=:chrom and" +
             " loc.chromosomePosition >=:bpStart and loc.chromosomePosition <= :bpEnd")
