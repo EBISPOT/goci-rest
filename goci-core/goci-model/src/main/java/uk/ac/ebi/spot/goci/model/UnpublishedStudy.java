@@ -104,6 +104,9 @@ public class UnpublishedStudy {
     @JsonManagedReference
     private Collection<UnpublishedAncestry> unpublishedAncestries;
 
+    @JsonProperty("agreed_to_cc0")
+    private Boolean agreedToCc0;
+
     public String getFile() {
         return String.format("/%s/", this.getAccession());
     }
