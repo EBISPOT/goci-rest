@@ -30,8 +30,8 @@ deploy-dev1:
     - chmod 700 ~/.ssh
   script:
     - scp -o StrictHostKeyChecking=no gwas-rest.jar $SERVER_SNOOPY:$APP_DIR_DEV1
-    - ssh -o StrictHostKeyChecking=no $SERVER_SNOOPY
-      "kill -9 \$(ps aux | grep 'gwas-rest.jar' | grep -v 'grep' | awk '{print \$2}');"
+    #- ssh -o StrictHostKeyChecking=no $SERVER_SNOOPY
+      #"kill -9 \$(ps aux | grep 'gwas-rest.jar' | grep -v 'grep' | awk '{print \$2}');"
     - ssh -o StrictHostKeyChecking=no $SERVER_SNOOPY
       "cd $APP_DIR_DEV1; nohup java -jar gwas-rest.jar --spring.profiles.active=dev1 > /dev/null 2>&1 &"
   only:
