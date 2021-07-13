@@ -1,0 +1,116 @@
+image: java:latest
+
+stages:
+  - build
+  - deploy-snoopy-dev1
+  - deploy-snoopy-dev2
+  - deploy-snoopy-test
+  - deploy-snoopy-preparation
+  - deploy-wwwdev-staging
+
+maven-build:
+  image: maven:3-jdk-8
+  stage: build
+  script:
+    - echo "Building Jar File"
+    - mvn clean package -Dmaven.test.error.ignore=true -Dmaven.test.failure.ignore=true
+  artifacts:
+    paths:
+      - gwas-rest.jar
+    expire_in: 1 day
+
+deploy-dev1:
+  stage: deploy-snoopy-dev1
+  image: alpine
+  before_script:
+    - apk add openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - scp -o StrictHostKeyChecking=no gwas-rest.jar $SERVER_SNOOPY:$APP_DIR_DEV1
+    - ssh -o StrictHostKeyChecking=no $SERVER_SNOOPY
+      "kill -9 \$(ps aux | grep 'gwas-rest.jar' | grep -v 'grep' | awk '{print \$2}');"
+    - ssh -o StrictHostKeyChecking=no $SERVER_SNOOPY
+      "cd $APP_DIR_DEV1; nohup java -jar gwas-rest.jar --spring.profiles.active=dev1 > /dev/null 2>&1 &"
+  only:
+    - march-2021-refactoring
+
+
+deploy-dev2:
+  stage: deploy-snoopy-dev2
+  image: alpine
+  before_script:
+    - apk add openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - scp -o StrictHostKeyChecking=no gwas-rest.jar $SERVER_SNOOPY:$APP_DIR_DEV2
+      - ssh -o StrictHostKeyChecking=no $SERVER_SNOOPY
+      "kill -9 \$(ps aux | grep 'gwas-rest.jar' | grep -v 'grep' | awk '{print \$2}');"
+    - ssh -o StrictHostKeyChecking=no $SERVER_SNOOPY
+      "cd $APP_DIR_DEV2; nohup java -jar gwas-rest.jar --spring.profiles.active=dev2 > /dev/null 2>&1 &"
+  only:
+    - dev
+
+
+deploy-snoopy-test:
+  stage: deploy-snoopy-test
+  image: alpine
+  before_script:
+    - apk add openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - scp -o StrictHostKeyChecking=no gwas-rest.jar $SNOOPY_SERVER:$APP_DIRECTORY_TEST
+    - ssh -o StrictHostKeyChecking=no $SNOOPY_SERVER
+      "kill -9 \$(ps aux | grep 'gwas-rest.jar' | grep -v 'grep' | awk '{print \$2}');"
+    - ssh -o StrictHostKeyChecking=no $SNOOPY_SERVER
+      "cd $APP_DIRECTORY_TEST; nohup java -jar gwas-rest.jar $PROGRAM_ARGUMENTS --spring.profiles.active=test > /dev/null 2>&1 &"
+  only:
+    - master
+
+
+
+deploy-snoopy-preparation:
+  stage: deploy-snoopy-preparation
+  image: alpine
+  before_script:
+    - apk add openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - scp -o StrictHostKeyChecking=no gwas-rest.jar $SNOOPY_SERVER:$APP_DIRECTORY_PREPARATION
+    - ssh -o StrictHostKeyChecking=no $SNOOPY_SERVER
+      "kill -9 \$(ps aux | grep 'gwas-rest.jar' | grep -v 'grep' | awk '{print \$2}');"
+    - ssh -o StrictHostKeyChecking=no $SNOOPY_SERVER
+      "cd $APP_DIRECTORY_PREPARATION; nohup java -jar gwas-rest.jar $PROGRAM_ARGUMENTS --spring.profiles.active=preparation > /dev/null 2>&1 &"
+  only:
+    - master
+
+
+deploy-wwwdev-staging:
+  stage: deploy-wwwdev-staging
+  image: alpine
+  before_script:
+    - apk add openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - scp -o StrictHostKeyChecking=no gwas-rest.jar $WWWDEV_STAGING_SERVER:$APP_DIR_NOAH
+    #- ssh -o StrictHostKeyChecking=no $WWWDEV_STAGING_SERVER
+    #  "kill -9 \$(ps aux | grep 'gwas-rest.jar' | grep -v 'grep' | awk '{print \$2}');"
+    - ssh -o StrictHostKeyChecking=no $WWWDEV_STAGING_SERVER
+      "cd $APP_DIR_NOAH; nohup java -jar gwas-rest.jar $PROGRAM_ARGUMENTS --spring.profiles.active=staging > /dev/null 2>&1 &"
+  #when: manual
+  only:
+    - march-2021-refactoring

@@ -1,0 +1,6 @@
+server:
+  port: 9782
+
+datadir: file:///nfs/spot/data/dev
+solrserver: http://snoopy.ebi.ac.uk:8987
+virtusoserver: http://rdf-hx-01.ebi.ac.uk:8172

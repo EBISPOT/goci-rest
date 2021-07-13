@@ -215,6 +215,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <outputDirectory>${user.dir}</outputDirectory>
+                    <finalName>gwas-rest</finalName>
+                </configuration>
             </plugin>
 
             <plugin>

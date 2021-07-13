@@ -1,0 +1,68 @@
+#===========================================COMPULSORY PROGRAM ARGUMENTS======================================#
+datadir: file:///nfs/public/rw/gwas/latest
+solrserver: http://ves-oy-7f.ebi.ac.uk:8983
+virtusoserver: http://ves-oy-7f.ebi.ac.uk:8191
+#===========================================COMPULSORY PROGRAM ARGUMENTS======================================#
+
+server:
+  port: 8080
+  servlet:
+    context-path: /gwas/rest
+
+spring:
+  jmx:
+    enabled: false
+  profiles:
+    active: local
+
+
+
+search:
+  defaultFacet: resourcename
+  server: ${solrserver}/solr/gwas
+  server.slim: ${solrserver}/solr/gwas_slim
+
+efo:
+  location: https://www.ebi.ac.uk/efo/efo.owl
+
+lode:
+  sparqlendpoint:
+    url: ${virtusoserver}/sparql
+
+ols:
+  efo:
+    terms: /api/ontologies/efo/terms
+  fullIri: ?iri=
+  server: https://www.ebi.ac.uk/ols
+  shortForm: ?short_form=
+
+pussycat:
+  session:
+    strategy: JOIN
+
+cache:
+  directory: ${datadir}/svg_cache
+
+download:
+  NCBI: ${datadir}/downloads/gwas-catalog-ncbi.txt
+  alternative: ${datadir}/downloads/gwas-catalog-download-alternative.txt
+  ancestry: ${datadir}/downloads/gwas-catalog-ancestry-download.txt
+  efoMappings: ${datadir}/downloads/gwas-efo-trait-mappings.txt
+  ensemblmapping: ${datadir}/downloads/gwas-catalog-download-ensembl.txt
+  full: ${datadir}/downloads/gwas-catalog-download.txt
+  studies: ${datadir}/downloads/gwas-catalog-studies-download.txt
+  studiesAlternative: ${datadir}/downloads/gwas-catalog-studies-download-alternative.txt
+  new_format:
+    ancestries: ${datadir}/downloads/gwas-catalog-download-ancestries-v1.0.3.txt
+    studies: ${datadir}/downloads/gwas-catalog-download-studies-v1.0.3.txt
+  unpublished:
+    ancestries: ${datadir}/downloads/gwas-catalog-unpublished-ancestries-v1.0.3.tsv
+    studies: ${datadir}/downloads/gwas-catalog-unpublished-studies-v1.0.3.tsv
+
+summary:
+  stats:
+    file: ${datadir}/downloads/summary-stats-resources.txt
+
+catalog:
+  stats:
+    file: ${datadir}/downloads/gwas-catalog-stats.txt
