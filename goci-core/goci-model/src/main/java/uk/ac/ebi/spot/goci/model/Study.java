@@ -84,6 +84,13 @@ public class Study implements Trackable {
     @JsonManagedReference
     private Collection<EfoTrait> efoTraits;
 
+    @ManyToMany
+    @JoinTable(name = "STUDY_BACKGROUND_EFO_TRAIT",
+            joinColumns = @JoinColumn(name = "STUDY_ID"),
+            inverseJoinColumns = @JoinColumn(name = "EFO_TRAIT_ID"))
+    @JsonManagedReference
+    private Collection<EfoTrait> backgroundEfoTraits;
+
     @OneToOne(orphanRemoval = true)
     @JsonIgnore
     private Housekeeping housekeeping;
@@ -166,6 +173,7 @@ public class Study implements Trackable {
                  Collection<Ancestry> ancestries,
                  DiseaseTrait diseaseTrait,
                  Collection<EfoTrait> efoTraits,
+                 Collection<EfoTrait> backgroundEfoTraits,
                  Housekeeping housekeeping,
                  StudyReport studyReport, Collection<Event> events,
                  Collection<SingleNucleotidePolymorphism> snps,
@@ -191,6 +199,7 @@ public class Study implements Trackable {
         this.ancestries = ancestries;
         this.diseaseTrait = diseaseTrait;
         this.efoTraits = efoTraits;
+        this.backgroundEfoTraits = backgroundEfoTraits;
         this.housekeeping = housekeeping;
         this.studyReport = studyReport;
         this.events = events;
@@ -284,6 +293,14 @@ public class Study implements Trackable {
 
     public void setEfoTraits(Collection<EfoTrait> efoTraits) {
         this.efoTraits = efoTraits;
+    }
+
+    public Collection<EfoTrait> getBackgroundEfoTraits() {
+        return backgroundEfoTraits;
+    }
+
+    public void setBackgroundEfoTraits(Collection<EfoTrait> backgroundEfoTraits) {
+        this.backgroundEfoTraits = backgroundEfoTraits;
     }
 
     public Housekeeping getHousekeeping() {

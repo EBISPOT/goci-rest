@@ -66,6 +66,8 @@ public interface StudyProjection {
 
     Collection<EfoTrait> getEfoTraits();
 
+    Collection<EfoTrait> getBackgroundEfoTraits();
+
     Collection<Platform> getPlatforms() ;
 
     Collection<GenotypingTechnology> getGenotypingTechnologies();
