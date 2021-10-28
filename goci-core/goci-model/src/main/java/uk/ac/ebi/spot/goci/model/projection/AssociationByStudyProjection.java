@@ -33,6 +33,8 @@ public interface AssociationByStudyProjection {
 
     Collection<EfoTrait> getEfoTraits();
 
+    Collection<EfoTrait> getBackgroundEfoTraits();
+
     Study getStudy();
 }
 

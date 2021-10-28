@@ -34,4 +34,6 @@ public interface AssociationBySNPProjection {
       Collection<Locus> getLoci();
 
       Collection<EfoTrait> getEfoTraits();
+
+      Collection<EfoTrait> getBackgroundEfoTraits();
 }
