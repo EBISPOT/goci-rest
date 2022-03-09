@@ -28,8 +28,10 @@ public class ThrottlingServiceImpl implements ThrottlingService {
     }
 
     private Bucket newBucket(String s) {
-        return Bucket4j.builder()
-                .addLimit(Bandwidth.classic(10, Refill.intervally(10, Duration.ofMinutes(1)))).build();
+        // An interval refiller refills the bucket with ten tokens per minute
+        Refill refill = Refill.intervally(16, Duration.ofMinutes(1));
+        Bandwidth limit = Bandwidth.classic(16, refill);
+        return Bucket4j.builder().addLimit(limit).build();
     }
 
     @Override

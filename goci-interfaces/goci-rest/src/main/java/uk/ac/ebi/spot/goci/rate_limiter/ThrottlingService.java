@@ -9,6 +9,7 @@ public interface ThrottlingService {
     Bucket resolveBucket(String clientIp);
 
     String getClientIp(HttpServletRequest request);
+
 }
 
 
