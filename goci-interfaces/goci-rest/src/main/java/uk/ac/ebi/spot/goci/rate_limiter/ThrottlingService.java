@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 public interface ThrottlingService {
 
     Bucket resolveBucket(String clientIp);
+
+    String getClientIp(HttpServletRequest request);
 }
 
 
