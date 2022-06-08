@@ -1,0 +1,13 @@
+server:
+  port: 9582
+
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    password:
+    url: jdbc:oracle:thin:@ora-dlvm-018.ebi.ac.uk:1521:VSPOTDEV2
+    username:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+

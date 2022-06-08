@@ -1,0 +1,16 @@
+server:
+  port: 9782
+
+datadir: file:///nfs/spot/data/dev
+solrserver: http://snoopy.ebi.ac.uk:8987
+virtusoserver: http://rdf-hx-01.ebi.ac.uk:8172
+
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    password:
+    url: jdbc:oracle:thin:@ora-dlvm-024.ebi.ac.uk:1521:VSPOTDEV3
+    username:
+  jpa:
+    hibernate:
+      ddl-auto: validate

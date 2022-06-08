@@ -1,0 +1,8 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 404 Not Found
+Content-Type: application/json;charset=UTF-8
+Content-Length: 173
+
+{"timestamp":1586857804927,"status":404,"error":"Not Found","message":"The tag 'https://www.ebi.ac.uk/gwas/rest/api/studies/123' the resource did not exist","path":"/notes"}
+----

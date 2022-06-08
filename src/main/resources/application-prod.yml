@@ -1,0 +1,20 @@
+server:
+  port: 9782
+
+
+datadir: file:///nfs/public/rw/gwas/latest
+solrserver:
+virtusoserver:
+
+
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    password:
+    url: jdbc:oracle:thin:@ora-dlvmpub1-006.ebi.ac.uk:1521:spotpub
+    username:
+    max-active: 4
+    max-idle: 0
+  jpa:
+    hibernate:
+      ddl-auto: validate

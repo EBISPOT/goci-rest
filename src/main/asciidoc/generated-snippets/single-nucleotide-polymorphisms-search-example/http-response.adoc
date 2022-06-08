@@ -1,0 +1,46 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 1865
+
+{
+  "_links" : {
+    "findByRsId" : {
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/singleNucleotidePolymorphisms/search/findByRsId{?rsId,projection}",
+      "templated" : true
+    },
+    "findByDiseaseTrait" : {
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/singleNucleotidePolymorphisms/search/findByDiseaseTrait{?diseaseTrait,projection}",
+      "templated" : true
+    },
+    "findByGene" : {
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/singleNucleotidePolymorphisms/search/findByGene{?geneName,page,size,sort,projection}",
+      "templated" : true
+    },
+    "findByChromBpLocationRange" : {
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/singleNucleotidePolymorphisms/search/findByChromBpLocationRange{?chrom,bpStart,bpEnd,page,size,sort,projection}",
+      "templated" : true
+    },
+    "findByBpLocation" : {
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/singleNucleotidePolymorphisms/search/findByBpLocation{?bpLocation,projection}",
+      "templated" : true
+    },
+    "findIdsByLocationsChromosomeNameAndLocationsChromosomePositionBetween" : {
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/singleNucleotidePolymorphisms/search/findIdsByLocationsChromosomeNameAndLocationsChromosomePositionBetween{?chrom,bpStart,bpEnd,page,size,sort,projection}",
+      "templated" : true
+    },
+    "findByPubmedId" : {
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/singleNucleotidePolymorphisms/search/findByPubmedId{?pubmedId,page,size,sort,projection}",
+      "templated" : true
+    },
+    "findByEfoTrait" : {
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/singleNucleotidePolymorphisms/search/findByEfoTrait{?efoTrait,projection}",
+      "templated" : true
+    },
+    "self" : {
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/singleNucleotidePolymorphisms/search"
+    }
+  }
+}
+----

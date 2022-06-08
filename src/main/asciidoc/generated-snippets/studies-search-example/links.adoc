@@ -1,0 +1,28 @@
+|===
+|Relation|Description
+
+|`self`
+|This study
+
+|`findByPublicationIdPubmedId`
+|Search for a study using the parameter pubmedId
+
+|`findByAccessionId`
+|Search for a study using the parameter accessionId
+
+|`findByFullPvalueSet`
+|Search for a study by whether full summary statistics are available, using the parameter fullPvalueSet
+
+|`findByUserRequested`
+|Search for a study by whether its addition to the Catalog was requested by a user, using the parameter userRequested 
+
+|`findByEfoTrait`
+|Search for a study via the annotated EFO term using the parameter efTrait
+
+|`findByEfoUri`
+|Search for a study via the annotated EFO term using the parameter uri
+
+|`findByDiseaseTrait`
+|Search for a study via the annotated disease term using the parameter diseaseTrait
+
+|===

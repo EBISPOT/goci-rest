@@ -1,0 +1,22 @@
+|===
+|Relation|Description
+
+|`self`
+|This SNP
+
+|`singleNucleotidePolymorphism`
+|This SNP
+
+|`studies`
+|Link to the <<studies-resources,studies>> this SNP is identified in
+
+|`associations`
+|Associations this SNP is found in
+
+|`associationsBySnpSummary`
+|A convenience projection of associations for this SNP with all the information not found in the SNP endpoint
+
+|`currentSnp`
+|SNP the present SNP was merged with as part of a more recent genome build
+
+|===

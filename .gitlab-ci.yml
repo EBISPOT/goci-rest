@@ -1,0 +1,211 @@
+image: java:latest
+
+stages:
+  - build
+  - deploy-snoopy-dev1
+  - deploy-snoopy-dev2
+  - deploy-snoopy-test
+  - deploy-snoopy-preparation
+  - deploy-wwwdev-staging
+  - deploy-ves-pg-7e-prod
+  - deploy-ves-pg-7f-prod
+  - deploy-ves-oy-7e-fallback
+  - deploy-ves-oy-7f-fallback
+
+maven-build:
+  image: maven:3-jdk-8
+  stage: build
+  script:
+    - echo "Building Jar File"
+    - mvn clean package -Dmaven.test.error.ignore=true -Dmaven.test.failure.ignore=true
+  artifacts:
+    paths:
+      - gwas-rest.jar
+    expire_in: 1 day
+
+deploy-dev1:
+  stage: deploy-snoopy-dev1
+  image: alpine
+  before_script:
+    - apk add openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - scp -o StrictHostKeyChecking=no gwas-rest.jar $SERVER_SNOOPY:$APP_DIR_DEV1
+    - ssh -o StrictHostKeyChecking=no $SERVER_SNOOPY
+      "kill -9 \$(ps aux | grep 'gwas-rest.jar' |  grep 'dev1' | grep -v 'grep' | awk '{print \$2}');"
+    - ssh -o StrictHostKeyChecking=no $SERVER_SNOOPY
+      "cd $APP_DIR_DEV1; nohup java -jar gwas-rest.jar --spring.profiles.active=dev1 > /dev/null 2>&1 &"
+  only:
+    - march-2021-refactoring
+
+
+deploy-dev2:
+  stage: deploy-snoopy-dev2
+  image: alpine
+  before_script:
+    - apk add openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - scp -o StrictHostKeyChecking=no gwas-rest.jar $SERVER_SNOOPY:$APP_DIR_DEV2
+    - ssh -o StrictHostKeyChecking=no $SERVER_SNOOPY
+      "kill -9 \$(ps aux | grep 'gwas-rest.jar' | grep 'dev2' | grep -v 'grep' | awk '{print \$2}');"
+    - ssh -o StrictHostKeyChecking=no $SERVER_SNOOPY
+      "cd $APP_DIR_DEV2; nohup java -jar gwas-rest.jar --spring.profiles.active=dev2 > /dev/null 2>&1 &"
+  only:
+    - march-2021-refactoring
+
+
+deploy-snoopy-test:
+  stage: deploy-snoopy-test
+  image: alpine
+  before_script:
+    - apk add openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - scp -o StrictHostKeyChecking=no gwas-rest.jar $SERVER_SNOOPY:$APP_DIR_TEST
+    - ssh -o StrictHostKeyChecking=no $SERVER_SNOOPY
+      "kill -9 \$(ps aux | grep 'gwas-rest.jar' | grep 'test' | grep -v 'grep' | awk '{print \$2}');"
+    - ssh -o StrictHostKeyChecking=no $SERVER_SNOOPY
+      "cd $APP_DIR_TEST; nohup java -jar gwas-rest.jar  --spring.profiles.active=test > /dev/null 2>&1 &"
+  only:
+    - march-2021-refactoring
+
+
+
+deploy-snoopy-preparation:
+  stage: deploy-snoopy-preparation
+  image: alpine
+  before_script:
+    - apk add openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - scp -o StrictHostKeyChecking=no gwas-rest.jar $SERVER_SNOOPY:$APP_DIR_PREPARATION
+    - ssh -o StrictHostKeyChecking=no $SERVER_SNOOPY
+      "kill -9 \$(ps aux | grep 'gwas-rest.jar' | grep 'preparation' | grep -v 'grep' | awk '{print \$2}');"
+    - ssh -o StrictHostKeyChecking=no $SERVER_SNOOPY
+      "cd $APP_DIR_PREPARATION; nohup java -jar gwas-rest.jar  --spring.profiles.active=preparation > /dev/null 2>&1 &"
+  only:
+    - march-2021-refactoring
+
+
+deploy-wwwdev-staging:
+  stage: deploy-wwwdev-staging
+  image: alpine
+  before_script:
+    - apk add openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - scp -o StrictHostKeyChecking=no gwas-rest.jar $SERVER_EBI_CLI:$APP_DIR_PROD
+    - ssh -o StrictHostKeyChecking=no $SERVER_EBI_CLI
+      "sudo -u spo_adm cp $APP_DIR_PROD/gwas-rest.jar $APP_DIR_NOAH/gwas-rest.jar"
+   # - ssh -o StrictHostKeyChecking=no $SERVER_WWWDEV_STAGING
+    #  "kill -9 \$(ps aux | grep 'gwas-rest.jar' | grep 'staging' | grep -v 'grep' | awk '{print \$2}');"
+    - ssh -o StrictHostKeyChecking=no $SERVER_WWWDEV_STAGING
+        "cd $EXEC_DIR_STAGING; nohup java -jar $APP_DIR_NOAH/gwas-rest.jar --spring.profiles.active=staging > /dev/null 2>&1 &"
+  when: manual
+  only:
+    - march-2021-refactoring
+
+
+deploy-ves-pg-7e-prod:
+  stage: deploy-ves-pg-7e-prod
+  image: alpine
+  before_script:
+    - apk add openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - scp -o StrictHostKeyChecking=no gwas-rest.jar $SERVER_EBI_CLI:$APP_DIR_PROD
+    - ssh -o StrictHostKeyChecking=no $SERVER_EBI_CLI
+      "sudo -u spo_adm cp $APP_DIR_PROD/gwas-rest.jar $APP_DIR_NOAH/gwas-rest.jar;
+      sudo -u spo_adm sync-project -w gwas;
+      sudo -u spo_adm ssh ves-pg-7e /nfs/public/ro/gwas/sw/update_data_link.sh"
+    #- ssh -o StrictHostKeyChecking=no $SERVER_VESPG7E_PROD
+     # "kill -9 \$(ps aux | grep 'gwas-rest.jar' | grep 'prod' | grep -v 'grep' | awk '{print \$2}');"
+    - ssh -o StrictHostKeyChecking=no $SERVER_VESPG7E_PROD
+      "cd $EXEC_DIR_VESPG7E; nohup java -jar $APP_DIR_NOAH/gwas-rest.jar $PROGRAM_ARGUMENTS --spring.profiles.active=prod --solrserver=http://${SERVER_VES_PG_7E}:8983 --virtusoserver=http://${SERVER_VES_PG_7E}:8191 > /dev/null 2>&1 &"
+  when: manual
+  only:
+    - march-2021-refactoring
+
+
+deploy-ves-pg-7f-prod:
+  stage: deploy-ves-pg-7f-prod
+  image: alpine
+  before_script:
+    - apk add openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - scp -o StrictHostKeyChecking=no gwas-rest.jar $SERVER_EBI_CLI:$APP_DIR_PROD
+    - ssh -o StrictHostKeyChecking=no $SERVER_EBI_CLI
+      "sudo -u spo_adm cp $APP_DIR_PROD/gwas-rest.jar $APP_DIR_NOAH/gwas-rest.jar"
+    - ssh -o StrictHostKeyChecking=no $SERVER_VESPG7F_PROD
+      "kill -9 \$(ps aux | grep 'gwas-rest.jar' | grep 'prod' | grep -v 'grep' | awk '{print \$2}');"
+    - ssh -o StrictHostKeyChecking=no $SERVER_VESPG7F_PROD
+      "cd $EXEC_DIR_VESPG7F; nohup java -jar $APP_DIR_NOAH/gwas-rest.jar $PROGRAM_ARGUMENTS --solrserver=http://${SERVER_VES_PG_7F}:8983 --virtusoserver=http://${SERVER_VES_PG_7F}:8191 --spring.profiles.active=prod > /dev/null 2>&1 &"
+  when: manual
+  only:
+    - march-2021-refactoring
+
+deploy-ves-oy-7e-fallback:
+  stage: deploy-ves-oy-7e-fallback
+  image: alpine
+  before_script:
+    - apk add openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - scp -o StrictHostKeyChecking=no gwas-rest.jar $SERVER_EBI_CLI:$APP_DIR_PROD
+    - ssh -o StrictHostKeyChecking=no $SERVER_EBI_CLI
+      "sudo -u spo_adm cp $APP_DIR_PROD/gwas-rest.jar $APP_DIR_NOAH/gwas-rest.jar"
+    - ssh -o StrictHostKeyChecking=no $SERVER_VESOY7E_FALLBACK
+      "kill -9 \$(ps aux | grep 'gwas-rest.jar' | grep 'prod' | grep -v 'grep' | awk '{print \$2}');"
+    - ssh -o StrictHostKeyChecking=no $SERVER_VESOY7E_FALLBACK
+      "cd $EXEC_DIR_VESOY7E; nohup java -jar $APP_DIR_NOAH/gwas-rest.jar  $PROGRAM_ARGUMENTS --solrserver=http://${SERVER_VES_OY_7E}:8983 --virtusoserver=http://${SERVER_VES_OY_7E}:8191 --spring.profiles.active=fallback > /dev/null 2>&1 &"
+  when: manual
+  only:
+    - march-2021-refactoring
+
+deploy-ves-oy-7f-fallback:
+  stage: deploy-ves-oy-7f-fallback
+  image: alpine
+  before_script:
+    - apk add openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+  script:
+    - scp -o StrictHostKeyChecking=no gwas-rest.jar $SERVER_EBI_CLI:$APP_DIR_PROD
+    - ssh -o StrictHostKeyChecking=no $SERVER_EBI_CLI
+      "sudo -u spo_adm cp $APP_DIR_PROD/gwas-rest.jar $APP_DIR_NOAH/gwas-rest.jar"
+    - ssh -o StrictHostKeyChecking=no $SERVER_VESOY7F_FALLBACK
+      "kill -9 \$(ps aux | grep 'gwas-rest.jar' | grep 'prod' | grep -v 'grep' | awk '{print \$2}');"
+    - ssh -o StrictHostKeyChecking=no $SERVER_VESOY7F_FALLBACK
+      "cd $EXEC_DIR_VESOY7F; nohup java -jar $APP_DIR_NOAH/gwas-rest.jar  $PROGRAM_ARGUMENTS --solrserver=http://${SSERVER_VES_OY_7F}:8983 --virtusoserver=http://${SERVER_VES_OY_7F}:8191  --spring.profiles.active=fallback > /dev/null 2>&1 &"
+  when: manual
+  only:
+    - march-2021-refactoring
+
