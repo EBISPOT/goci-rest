@@ -8,13 +8,6 @@ import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- * Created by emma on 31/05/2016.
- *
- * @author emma
- *         <p>
- *         Model object to store details of a deleted study
- */
 @Entity
 public class DeletedStudy {
     @Id
@@ -30,7 +23,6 @@ public class DeletedStudy {
                inverseJoinColumns = @JoinColumn(name = "EVENT_ID"))
     private Collection<Event> events = new ArrayList<>();
 
-    // JPA no-args constructor
     public DeletedStudy() {
     }
 

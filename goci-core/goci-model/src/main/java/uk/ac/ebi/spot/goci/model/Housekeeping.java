@@ -8,14 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import java.util.Date;
 
-
-/**
- * Created by emma on 03/12/14.
- *
- * @author emma
- *         <p>
- *         Model representing housekeeping information stored about a study that is used during curation
- */
 @Entity
 public class Housekeeping {
     @Id
@@ -66,7 +58,6 @@ public class Housekeeping {
     @OneToOne
     private UnpublishReason unpublishReason;
 
-    // JPA no-args constructor
     public Housekeeping() {
     }
 

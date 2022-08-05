@@ -16,14 +16,6 @@ import javax.persistence.OneToMany;
 import java.util.Collection;
 import java.util.Date;
 
-/**
- * Created by emma on 21/11/14.
- *
- * @author emma
- *         <p>
- *         Model object representing a single nucleotide polymorphisms and its attributes
- */
-
 @Entity
 public class SingleNucleotidePolymorphism {
     @Id
@@ -92,7 +84,6 @@ public class SingleNucleotidePolymorphism {
                                         Collection<RiskAllele> riskAlleles,
                                         SingleNucleotidePolymorphism currentSnp,
                                         Collection<Association> associations,
-//                                        Collection<Gene> genes,
                                         Collection<Study> studies) {
         this.rsId = rsId;
         this.merged = merged;
@@ -103,7 +94,6 @@ public class SingleNucleotidePolymorphism {
         this.riskAlleles = riskAlleles;
         this.currentSnp = currentSnp;
         this.associations = associations;
-//        this.genes = genes;
         this.studies = studies;
     }
 
@@ -180,14 +170,6 @@ public class SingleNucleotidePolymorphism {
     public void setAssociations(Collection<Association> associations) {
         this.associations = associations;
     }
-
-//    public Collection<Gene> getGenes() {
-//        return genes;
-//    }
-//
-//    public void setGenes(Collection<Gene> genes) {
-//        this.genes = genes;
-//    }
 
     public Collection<Study> getStudies() {
         return studies;

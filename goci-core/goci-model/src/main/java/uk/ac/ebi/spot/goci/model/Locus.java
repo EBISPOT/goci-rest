@@ -13,13 +13,6 @@ import javax.persistence.ManyToOne;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- * Created by emma on 26/01/15.
- *
- * @author emma
- *         <p>
- *         Locus object holds links to associated risk alleles and author reported genes
- */
 @Entity
 public class Locus {
     @Id
@@ -51,7 +44,6 @@ public class Locus {
     @JsonBackReference
     private Association association;
 
-    // JPA no-args constructor
     public Locus() {
     }
 

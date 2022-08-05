@@ -7,9 +7,6 @@ import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.Date;
 
-/**
- * Created by cinzia on 27/03/2017.
- */
 @Entity
 public class NoteSubject {
     @Id
@@ -27,7 +24,6 @@ public class NoteSubject {
     private Date lastUpdateTime;
 
     private String template;
-
 
     @PrePersist
     protected void onCreate() {

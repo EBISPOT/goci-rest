@@ -4,10 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Date;
 
-/**
- * Created by dwelter on 15/04/16.
- */
-
 @Entity
 public class WeeklyTotalsSummaryView{ //extends TotalsSummaryView{
 
@@ -20,7 +16,6 @@ public class WeeklyTotalsSummaryView{ //extends TotalsSummaryView{
 
     private Integer weeklyEntries;
 
-    // JPA no-args constructor
     public WeeklyTotalsSummaryView() {
     }
 

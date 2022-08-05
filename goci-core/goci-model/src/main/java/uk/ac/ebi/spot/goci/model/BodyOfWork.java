@@ -31,11 +31,9 @@ public class BodyOfWork{
     private String title;
     @JsonProperty("first_author")
     private String firstAuthor;
-//    private DepositionAuthor correspondingAuthor;
     @Column(name = "pub_date")
     @JsonProperty("publication_date")
     private Date publicationDate;
-//    private String status;
     private String doi;
 
     @JsonBackReference

@@ -6,13 +6,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import java.util.Date;
 
-/**
- * Created by emma on 08/06/2016.
- *
- * @author emma
- *         <p>
- *         Model of WEEKLY_PROGRESS_VIEW table
- */
 @Entity
 public class WeeklyProgressView {
 
@@ -23,10 +16,8 @@ public class WeeklyProgressView {
 
     private Long studyId;
 
-    //@Enumerated(EnumType.STRING)
     private String eventType;
 
-    // JPA no-args constructor
     public WeeklyProgressView() {
     }
 

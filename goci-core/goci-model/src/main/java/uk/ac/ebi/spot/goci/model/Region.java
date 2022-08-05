@@ -8,13 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.Collection;
 
-/**
- * Created by emma on 01/12/14.
- *
- * @author emma
- *         <p>
- *         Model of name information associated with a SNP
- */
 @Entity
 public class Region {
     @Id
@@ -27,12 +20,9 @@ public class Region {
     @JsonBackReference
     private Collection<Location> locations;
 
-
-    // JPA no-args constructor
     public Region() {
     }
 
-    // Constructor with only the region name (i.e. cytogenetic band)
     public Region(String name) {
         this.name = name;
     }
@@ -42,7 +32,6 @@ public class Region {
         this.name = name;
         this.locations = locations;
     }
-
 
     public Long getId() {
         return id;

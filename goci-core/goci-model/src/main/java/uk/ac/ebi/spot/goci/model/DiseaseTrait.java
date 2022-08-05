@@ -10,15 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.Collection;
 
-/**
- * Created by emma on 01/12/14.
- *
- * @author emma
- *         <p>
- *         Mdoel object representing a disease trait which is assigned normally at the study level
- */
-
-
 @Entity
 public class DiseaseTrait {
     @Id
@@ -33,7 +24,6 @@ public class DiseaseTrait {
     @RestResource(exported = false)
     private Collection<Study> studies;
 
-    // JPA no-args constructor
     public DiseaseTrait() {
     }
 

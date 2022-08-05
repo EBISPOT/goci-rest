@@ -4,14 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-/**
- * Created by emma on 28/04/2016.
- *
- * @author emma/cinzia
- *         <p>
- * @Note: This enum class is deprecated. DB table: EVENT_TYPE
- */
-
 @Entity
 public class EventType {
 
@@ -24,7 +16,6 @@ public class EventType {
     private String eventType;
 
     private String translatedEvent;
-
 
     public Long getId() {
         return id;

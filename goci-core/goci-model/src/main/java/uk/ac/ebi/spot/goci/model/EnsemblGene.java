@@ -9,13 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 
-/**
- * Created by emma on 21/07/2015.
- *
- * @author emma
- *         <p>
- *         A model object representing a gene from Ensembl database
- */
 @Entity
 public class EnsemblGene {
 
@@ -32,7 +25,6 @@ public class EnsemblGene {
     @JsonBackReference
     private Gene gene;
 
-    // JPA no-args constructor
     public EnsemblGene() {
     }
 

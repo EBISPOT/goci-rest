@@ -8,13 +8,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import java.util.Collection;
 
-/**
- * Created by emma on 09/02/15.
- *
- * @author emma
- *         <p>
- *         Model object representing a user
- */
 @Entity
 public class SecureUser {
 
@@ -22,7 +15,6 @@ public class SecureUser {
     @GeneratedValue
     private Long id;
 
-    // Email must be unique
     @Column(unique = true)
     private String email;
 
@@ -34,7 +26,6 @@ public class SecureUser {
     @OneToMany(mappedBy = "user")
     private Collection<Event> events;
 
-    // JPA no-args constructor
     public SecureUser() {
     }
 

@@ -2,13 +2,6 @@ package uk.ac.ebi.spot.goci.model;
 
 import java.util.Collection;
 
-/**
- * Created by emma on 20/04/2016.
- *
- * @author emma
- *         <p>
- *         Class used to represent a newly created row and any errors attahced
- */
 public class RowValidationSummary {
 
     private AssociationUploadRow row;

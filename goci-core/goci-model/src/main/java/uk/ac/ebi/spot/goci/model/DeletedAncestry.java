@@ -8,21 +8,12 @@ import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- * Created by emma on 04/08/2016.
- *
- * @author emma
- *         <p>
- *         Model object representing a deleted ancestry
- */
 @Entity
 public class DeletedAncestry {
 
     @Id
     private Long id;
 
-    // Use study ID rather than study object,
-    // this hopefully preserve event information even if the study is deleted
     private Long studyId;
 
     @OneToMany

@@ -20,13 +20,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
-/**
- * Created by emma on 27/11/14.
- *
- * @author emma
- *         <p>
- *         Model object representing an association
- */
 @Entity
 public class Association implements Trackable {
     @Id
@@ -56,7 +49,6 @@ public class Association implements Trackable {
 
     private String description;
 
-    // OR specific values
     private Float orPerCopyNum;
 
     @JsonIgnore
@@ -65,7 +57,6 @@ public class Association implements Trackable {
     @JsonIgnore
     private String orPerCopyRecipRange;
 
-    // Beta specific values
     private Float betaNum;
 
     private String betaUnit;
@@ -75,15 +66,12 @@ public class Association implements Trackable {
     @OneToOne
     private Study study;
 
-    // Association can have a number of loci attached depending on whether its a multi-snp haplotype
-    // or SNP:SNP interaction
     @OneToMany
     @JoinTable(name = "ASSOCIATION_LOCUS",
                joinColumns = @JoinColumn(name = "ASSOCIATION_ID"),
                inverseJoinColumns = @JoinColumn(name = "LOCUS_ID"))
     private Collection<Locus> loci = new ArrayList<>();
 
-    // To avoid null values collections are by default initialized to an empty array list
     @ManyToMany
     @JoinTable(name = "ASSOCIATION_EFO_TRAIT",
                joinColumns = @JoinColumn(name = "ASSOCIATION_ID"),
@@ -120,24 +108,9 @@ public class Association implements Trackable {
     @JsonIgnore
     private Collection<Note> notes;
 
-    /**REST API fix: reversal of control of association-SNP and association-gene relationship from association to SNP/gene to fix deletion issues with respect to
-     * the association-SNP/gene view table. Works but not optimal, improve solution if possible**/
-//    @ManyToMany
-//    @JoinTable(name = "ASSOCIATION_SNP_VIEW",
-//               joinColumns = @JoinColumn(name = "ASSOCIATION_ID"),
-//               inverseJoinColumns = @JoinColumn(name = "SNP_ID"))
     @ManyToMany(mappedBy = "associations")
     @JsonManagedReference
     private Collection<SingleNucleotidePolymorphism> snps = new ArrayList<>();
-
-//    @ManyToMany
-//    @JoinTable(name = "ASSOCIATION_GENE_VIEW",
-//               joinColumns = @JoinColumn(name = "ASSOCIATION_ID"),
-//               inverseJoinColumns = @JoinColumn(name = "GENE_ID"))
-//    @ManyToMany(mappedBy = "associations")
-//    @JsonManagedReference
-//    private Collection<Gene> genes = new ArrayList<>();
-
 
     @PrePersist
     protected void onCreate() { lastUpdateDate = new Date(); }
@@ -145,7 +118,6 @@ public class Association implements Trackable {
     @PreUpdate
     protected void onUpdate() { lastUpdateDate = new Date(); }
 
-    // JPA no-args constructor
     public Association() {
     }
 

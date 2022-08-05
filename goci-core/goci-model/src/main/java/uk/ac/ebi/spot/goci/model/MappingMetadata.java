@@ -7,11 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Date;
 
-/**
- * Created by emma on 28/09/2015.
- * <p>
- * Model object representing information stored about an Ensembl release
- */
 @Entity
 public class MappingMetadata {
 
@@ -28,8 +23,6 @@ public class MappingMetadata {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date usageStartDate;
 
-
-    // JPA no-args constructor
     public MappingMetadata() {
     }
 

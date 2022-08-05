@@ -8,12 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-/**
- * Javadocs go here!
- *
- * @author Tony Burdett
- * @date 03/02/15
- */
 @Entity
 public class GenomicContext {
     @Id
@@ -45,7 +39,6 @@ public class GenomicContext {
 
     private Boolean isClosestGene;
 
-    // JPA no-args constructor
     public GenomicContext() {
     }
 

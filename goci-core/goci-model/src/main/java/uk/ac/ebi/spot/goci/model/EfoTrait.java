@@ -8,14 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import java.util.Collection;
 
-/**
- * Created by emma on 04/12/14.
- *
- * @author emma
- *         <p>
- *         Model object representing an EFO trait which is normally assigned at the SNP level
- */
-
 @Entity
 public class EfoTrait {
     @Id

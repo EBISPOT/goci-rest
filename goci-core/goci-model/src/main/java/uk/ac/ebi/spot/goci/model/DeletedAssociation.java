@@ -8,20 +8,11 @@ import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- * Created by emma on 27/11/14.
- *
- * @author emma
- *         <p>
- *         Model object representing a deleted association
- */
 @Entity
 public class DeletedAssociation {
     @Id
     private Long id;
 
-    // Use study ID rather that study object,
-    // this hopefully preserve event information even if the study is deleted
     private Long studyId;
 
     @OneToMany
@@ -30,7 +21,6 @@ public class DeletedAssociation {
                inverseJoinColumns = @JoinColumn(name = "EVENT_ID"))
     private Collection<Event> events = new ArrayList<>();
 
-    // JPA no-args constructor
     public DeletedAssociation() {
     }
 

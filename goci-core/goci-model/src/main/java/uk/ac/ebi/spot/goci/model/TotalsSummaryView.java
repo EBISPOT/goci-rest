@@ -3,9 +3,6 @@ package uk.ac.ebi.spot.goci.model;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
-/**
- * Created by emma on 22/09/2015.
- */
 @MappedSuperclass
 abstract public class TotalsSummaryView {
 
@@ -20,7 +17,6 @@ abstract public class TotalsSummaryView {
 
     private String curationStatus;
 
-    // JPA no-args constructor
     public TotalsSummaryView() {
     }
 

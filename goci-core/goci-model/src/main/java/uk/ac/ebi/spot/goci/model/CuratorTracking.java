@@ -3,13 +3,6 @@ package uk.ac.ebi.spot.goci.model;
 import javax.persistence.*;
 import java.sql.Date;
 
-/**
- * Created by Cinzia on 01/12/16.
- *
- * @author Cinzia
- *         <p>
- *         Model object representing a curator tracking and its attributes
- */
 @Entity
 public class CuratorTracking {
     @Id

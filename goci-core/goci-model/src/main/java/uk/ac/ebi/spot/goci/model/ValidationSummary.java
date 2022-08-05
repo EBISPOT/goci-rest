@@ -3,13 +3,6 @@ package uk.ac.ebi.spot.goci.model;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- * Created by emma on 20/04/2016.
- *
- * @author emma
- *         <p>
- *         A class used to represent a summary of a validated submission and its errors
- */
 public class ValidationSummary {
 
     private Collection<AssociationSummary> associationSummaries = new ArrayList<>();

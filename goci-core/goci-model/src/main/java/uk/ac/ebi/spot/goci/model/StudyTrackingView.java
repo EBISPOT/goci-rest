@@ -5,13 +5,6 @@ import javax.persistence.Id;
 import java.sql.Date;
 
 
-/**
- * Created by Cinzia on 8/11/16.
- *
- * @author Cinzia
- *         <p>
- *         Model object representing study tracking view and its attributes
- */
 @Entity
 public class StudyTrackingView {
 
@@ -43,7 +36,6 @@ public class StudyTrackingView {
     private Integer unpublishReasonId;
 
     private Integer isPublished;
-
 
     public Long getStudyId() {
         return studyId;
