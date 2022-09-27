@@ -399,9 +399,9 @@ public class Study implements Trackable {
     @JsonProperty("publicationInfo")
     public PublicationDto getPublication() {
         return PublicationDto.builder()
-                .pubmedId(publicationId.getPubmedId())
                 .publicationDate(publicationId.getPublicationDate())
                 .publication(publicationId.getPublication())
+                .pubmedId(publicationId.getPubmedId())
                 .title(publicationId.getTitle())
                 .firstAuthor(publicationId.getFirstAuthor())
                 .build();

@@ -16,7 +16,6 @@ import java.util.Date;
 @AllArgsConstructor
 public class PublicationDto {
 
-    private Long id;
     private String pubmedId;
 
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd", timezone="BST")
