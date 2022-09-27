@@ -11,9 +11,6 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-/**
- * Created by cinzia on 22/09/2017.
- */
 @Entity
 public class Author {
 
@@ -24,7 +21,6 @@ public class Author {
     @NotBlank(message = "Fullname is missing")
     private String fullname;
 
-    //Converted fullname with standard char
     @JsonIgnore
     private String fullnameStandard;
 
@@ -72,8 +68,6 @@ public class Author {
     @JsonIgnore
     private Collection<Publication> publications = new ArrayList<>();
 
-
-    //JPA Constructor
     public Author() {}
 
     public Author(String fullname, String fullnameStandard, String lastName, String firstName, String initials,String orcid) {

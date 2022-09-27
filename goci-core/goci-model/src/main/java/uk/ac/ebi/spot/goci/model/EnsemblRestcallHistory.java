@@ -5,15 +5,6 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 import java.util.Date;
 
-/**
- * Created by Cinzia on 30/01/2017.
- *
- * @author cinzia
- *         <p>
- *         EnsemblRestCallHistory entity object.
- *         This table stores the Ensembl requests and the relative responses.
- */
-
 @Entity
 public class EnsemblRestcallHistory {
 
@@ -41,7 +32,6 @@ public class EnsemblRestcallHistory {
     @Column(name="LAST_UPDATE_TIME")
     private Date lastUpdateTime;
 
-    // This field is used during the remapping.
     private String ensemblSwapRelease;
 
     @PrePersist
@@ -61,7 +51,6 @@ public class EnsemblRestcallHistory {
     public void setId(Long id) {
         this.id = id;
     }
-
 
     public String getRequestType() { return requestType; }
 

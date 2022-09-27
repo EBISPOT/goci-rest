@@ -8,13 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import java.util.Collection;
 
-/**
- * Created by emma on 27/11/14.
- *
- * @author emma
- *         <p>
- *         Model object representing a curator and its attributes
- */
 @Entity
 public class Curator {
     @Id
@@ -33,7 +26,6 @@ public class Curator {
     @JsonIgnore
     private Collection<Note> notes;
 
-    // JPA no-args constructor
     public Curator() {
     }
 

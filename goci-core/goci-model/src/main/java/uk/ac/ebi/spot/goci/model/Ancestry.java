@@ -16,14 +16,6 @@ import javax.persistence.OneToOne;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- * Created by emma on 28/11/14.
- *
- * @author emma
- *         <p>
- *         Model object representing ancestrality information attached to a study
- */
-
 @Entity
 public class Ancestry implements Trackable {
     @Id
@@ -34,16 +26,9 @@ public class Ancestry implements Trackable {
 
     private Integer numberOfIndividuals;
 
-//    private String ancestralGroup;
-
-//    private String countryOfOrigin;
-
-//    private String countryOfRecruitment;
-
     @JsonIgnore
     private String description;
 
-    // In database but not available in curation interface forms as no longer used
     @JsonIgnore
     private String previouslyReported;
 
@@ -87,14 +72,12 @@ public class Ancestry implements Trackable {
                inverseJoinColumns = @JoinColumn(name = "EVENT_ID"))
     private Collection<Event> events = new ArrayList<>();
 
-    // JPA no-args constructor
     public Ancestry() {
     }
 
     public Ancestry(Collection<Country> countryOfOrigin,
                     Collection<Country> countryOfRecruitment,
                     String description,
-//                    String ancestralGroup,
                     Collection<Event> events,
                     String notes,
                     Integer numberOfIndividuals,
@@ -103,7 +86,6 @@ public class Ancestry implements Trackable {
         this.countryOfOrigin = countryOfOrigin;
         this.countryOfRecruitment = countryOfRecruitment;
         this.description = description;
-//        this.ancestralGroup = ancestralGroup;
         this.events = events;
         this.notes = notes;
         this.numberOfIndividuals = numberOfIndividuals;
@@ -137,14 +119,6 @@ public class Ancestry implements Trackable {
     public void setNumberOfIndividuals(Integer numberOfIndividuals) {
         this.numberOfIndividuals = numberOfIndividuals;
     }
-
-//    public String getAncestralGroup() {
-//        return ancestralGroup;
-//    }
-//
-//    public void setAncestralGroup(String ancestralGroup) {
-//        this.ancestralGroup = ancestralGroup;
-//    }
 
     public Collection<Country> getCountryOfOrigin() {
         return countryOfOrigin;

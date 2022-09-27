@@ -5,18 +5,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.annotations.Where;
+import uk.ac.ebi.spot.goci.model.dto.PublicationDto;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
-
-
-/**
- * Created by emma on 20/11/14.
- *
- * @author emma
- *         <p>
- *         Model of a GWAS study
- */
 
 @Entity
 public class Study implements Trackable {
@@ -29,7 +22,6 @@ public class Study implements Trackable {
     @JsonProperty("replicationSampleSize")
     private String replicateSampleSize;
 
-    // Defaults set as false
     @JsonIgnore
     private Boolean cnv = false;
 
@@ -117,38 +109,22 @@ public class Study implements Trackable {
     @OneToMany(mappedBy = "study")
     private Collection<WeeklyTracking> weeklyTrackings;
 
+    @JsonIgnore
     @OneToOne(cascade = {CascadeType.ALL})
     @JsonManagedReference("publicationInfo")
     @JoinColumn(name = "publication_id")
     private Publication publicationId;
 
 
-
-
-    /**REST API fix: reversal of control of study-SNP relationship from study to SNP to fix deletion issues with respect to
-     * the study-SNP view table. Works but not optimal, improve solution if possible**/
-//    @ManyToMany
-//    @JoinTable(name = "STUDY_SNP_VIEW",
-//               joinColumns = @JoinColumn(name = "STUDY_ID"),
-//               inverseJoinColumns = @JoinColumn(name = "SNP_ID"))
     @ManyToMany(mappedBy = "studies")
     private Collection<SingleNucleotidePolymorphism> snps = new ArrayList<>();
 
-    //If you want just the notes linked with the study please check Association.java
-    /**
-     * @OneToMany(mappedBy = "study")
-     * @JsonIgnore
-     * Write the annotation this way will caused the study object contains ALL the notes, including studyNotes and
-     * associationNote.However, we decide that the study onject should only include studyNotes, thus the blow
-     * annotation was used instead.
-     */
     @OneToMany
     @JoinColumn(name="genericId", referencedColumnName="id",insertable=false,updatable=false)
     @Where(clause="content_type='Study'")
     @JsonIgnore
     private Collection<StudyNote> notes = new ArrayList<>();
 
-    // JPA no-args constructor
     public Study() {
     }
 
@@ -157,8 +133,6 @@ public class Study implements Trackable {
                  Boolean cnv,
                  Boolean gxe,
                  Boolean gxg,
-//                 Boolean genomewideArray,
-//                 Boolean targetedArray,
                  Integer snpCount,
                  String qualifier,
                  Boolean imputed,
@@ -183,8 +157,6 @@ public class Study implements Trackable {
         this.cnv = cnv;
         this.gxe = gxe;
         this.gxg = gxg;
-//        this.genomewideArray = genomewideArray;
-//        this.targetedArray = targetedArray;
         this.snpCount = snpCount;
         this.qualifier = qualifier;
         this.imputed = imputed;
@@ -263,14 +235,6 @@ public class Study implements Trackable {
         this.gxg = gxg;
     }
 
-//    public Boolean getTargetedArray() {
-//        return targetedArray;
-//    }
-
-//    public void setTargetedArray(Boolean targetedArray) {
-//        this.targetedArray = targetedArray;
-//    }
-
     public Collection<Association> getAssociations() {
         return associations;
     }
@@ -344,19 +308,19 @@ public class Study implements Trackable {
         this.qualifier = qualifier;
     }
 
-    public boolean getImputed() {
+    public Boolean getImputed() {
         return imputed;
     }
 
-    public void setImputed(boolean imputed) {
+    public void setImputed(Boolean imputed) {
         this.imputed = imputed;
     }
 
-    public boolean getPooled() {
+    public Boolean getPooled() {
         return pooled;
     }
 
-    public void setPooled(boolean pooled) {
+    public void setPooled(Boolean pooled) {
         this.pooled = pooled;
     }
 
@@ -367,14 +331,6 @@ public class Study implements Trackable {
     public void setStudyDesignComment(String studyDesignComment) {
         this.studyDesignComment = studyDesignComment;
     }
-
-//    public Boolean getGenomewideArray() {
-//        return genomewideArray;
-//    }
-//
-//    public void setGenomewideArray(Boolean genomewideArray) {
-//        this.genomewideArray = genomewideArray;
-//    }
 
     public Collection<Event> getEvents() {
         return events;
@@ -458,8 +414,14 @@ public class Study implements Trackable {
     }
 
     @JsonProperty("publicationInfo")
-    public Publication getPublicationId() { return publicationId; }
+    public PublicationDto getPublication() {
+        return PublicationDto.builder()
+                .publicationDate(publicationId.getPublicationDate())
+                .publication(publicationId.getPublication())
+                .pubmedId(publicationId.getPubmedId())
+                .title(publicationId.getTitle())
+                .firstAuthor(publicationId.getFirstAuthor())
+                .build();
+    }
 
-    @JsonProperty("publicationInfo")
-    public void setPublicationId(Publication publicationId) { this.publicationId = publicationId; }
 }

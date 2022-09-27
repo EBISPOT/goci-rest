@@ -12,9 +12,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import java.util.Collection;
 
-/**
- * Created by emma on 26/01/15.
- */
 @Entity
 public class RiskAllele {
 
@@ -24,7 +21,6 @@ public class RiskAllele {
 
     private String riskAlleleName;
 
-    // Values required for SNP Interaction associations
     private String riskFrequency;
 
     private Boolean genomeWide = false;
@@ -49,8 +45,6 @@ public class RiskAllele {
     @JsonBackReference
     private Collection<Locus> loci;
 
-
-    // JPA no-args constructor
     public RiskAllele() {
     }
 
@@ -93,7 +87,6 @@ public class RiskAllele {
     public void setSnp(SingleNucleotidePolymorphism snp) {
         this.snp = snp;
     }
-
 
     public Collection<SingleNucleotidePolymorphism> getProxySnps() {
         return proxySnps;

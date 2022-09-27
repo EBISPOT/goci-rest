@@ -10,10 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import java.util.Collection;
 
-/**
- * Created by dwelter on 21/06/17.
- */
-
 @Entity
 public class GenotypingTechnology {
 
@@ -29,7 +25,6 @@ public class GenotypingTechnology {
     @RestResource(exported = false)
     private Collection<Study> studies;
 
-    // JPA no-args constructor
     public GenotypingTechnology() {
     }
 
@@ -38,7 +33,6 @@ public class GenotypingTechnology {
         this.genotypingTechnology = genotypingTechnology;
         this.studies = studies;
     }
-
 
     public Long getId() {
         return id;
@@ -56,7 +50,6 @@ public class GenotypingTechnology {
         this.genotypingTechnology = genotypingTechnology;
     }
 
-//    @JsonIgnore
     public Collection<Study> getStudies() {
         return studies;
     }

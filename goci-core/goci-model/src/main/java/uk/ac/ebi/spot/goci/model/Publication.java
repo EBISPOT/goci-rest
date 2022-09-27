@@ -11,13 +11,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.*;
 
-/**
- * Created by Cinzia 11/2017
- *
- * @author Cinzia
- *         <p>
- *         Model representing Publication information stored about a study that is used during curation
- */
 @Entity
 public class Publication {
 
@@ -52,7 +45,6 @@ public class Publication {
     @JsonIgnore
     private Date createdAt;
 
-
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "UPDATED")
     @JsonIgnore
@@ -81,7 +73,6 @@ public class Publication {
     @JsonIgnore
     private List<PublicationAuthors> publicationAuthors;
 
-    // JPA no-args constructor
     public Publication() {
     }
 

@@ -4,15 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.validation.Valid;
 
-/**
- * Created by emma on 21/03/2016.
- *
- * @author emma
- *         <p>
- *         Class used to represent errors generated after validation of an upload spreadsheet containing association
- *         values
- *         Added field typeError: this field is used to define if the error is data or xls issue.
- */
 public class ValidationError {
 
     private String field;
@@ -21,7 +12,7 @@ public class ValidationError {
 
     private Boolean warning = false;
 
-    private String typeError = "data"; // data or excel
+    private String typeError = "data";
 
     public String getField() {
         return field;

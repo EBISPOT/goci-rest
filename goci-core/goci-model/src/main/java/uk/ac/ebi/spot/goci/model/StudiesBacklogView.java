@@ -8,10 +8,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import java.util.Date;
 
-/**
- * Created by cinzia on 31/10/2016.
- */
-
 @Entity
 public class StudiesBacklogView {
 
@@ -24,7 +20,6 @@ public class StudiesBacklogView {
 
     private Integer studyPublished;
 
-    // JPA no-args constructor
     public StudiesBacklogView() {
     }
 

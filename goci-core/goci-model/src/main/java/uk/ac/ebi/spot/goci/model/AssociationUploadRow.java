@@ -3,14 +3,6 @@ package uk.ac.ebi.spot.goci.model;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- * Created by emma on 21/03/2016.
- *
- * @author emma
- *         <p>
- *         Object that represents a row in an upload spreadsheet containing association data
- *         Added listErrorCellType to manage the XLS formatting error.
- */
 public class AssociationUploadRow {
 
     private Integer rowNumber;
@@ -27,8 +19,6 @@ public class AssociationUploadRow {
 
     private String riskFrequency;
 
-    // Equivalent to "Risk element (allele, haplotype or SNPxSNP interaction) frequency in controls" in upload spreadsheet
-    // Set to "NR' by default
     private String associationRiskFrequency;
 
     private Integer pvalueMantissa;

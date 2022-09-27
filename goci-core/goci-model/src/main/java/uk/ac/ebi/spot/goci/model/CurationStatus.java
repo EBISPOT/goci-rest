@@ -4,14 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-/**
- * Created by emma on 27/11/14.
- *
- * @author emma
- *         <p>
- *         Model object representing status assigned to studies.
- */
-
 @Entity
 public class CurationStatus {
     @Id
@@ -20,7 +12,6 @@ public class CurationStatus {
 
     private String status;
 
-    // JPA no-args constructor
     public CurationStatus() {
     }
 
@@ -37,7 +28,6 @@ public class CurationStatus {
         return status;
     }
 
-    //Setters used in testing
     public void setId(Long id) {
         this.id = id;
     }

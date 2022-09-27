@@ -7,13 +7,6 @@ import java.sql.Date;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-/**
- * Created by emma on 28/04/2016.
- *
- * @author emma
- *         <p>
- *         Model of tracking event
- */
 @Entity
 public class Event {
 
@@ -24,7 +17,6 @@ public class Event {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date eventDate;
 
-    //@Enumerated(EnumType.STRING)
     private String eventType;
 
     @ManyToOne
@@ -32,7 +24,6 @@ public class Event {
 
     private String eventDescription;
 
-    // The week is from Sunday to Saturday.
     @Transient
     public int weekOfYear() {
         Calendar cal = new GregorianCalendar();
@@ -43,7 +34,6 @@ public class Event {
         return weekOfYear;
     }
 
-    // JPA no-args constructor
     public Event() {
     }
 

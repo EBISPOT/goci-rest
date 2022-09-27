@@ -4,13 +4,6 @@ import javax.persistence.*;
 import java.sql.Date;
 
 
-/**
- * Created by Cinzia on 9/11/16.
- *
- * @author Cinzia
- *         <p>
- *         Model object representing weekly tracking view and its attributes
- */
 @Entity
 public class WeeklyTracking {
 
@@ -31,8 +24,6 @@ public class WeeklyTracking {
 
     private Date eventDate;
 
-
-    // JPA no-args constructor
     public WeeklyTracking() {
     }
 
@@ -94,7 +85,6 @@ public class WeeklyTracking {
         this.eventDate = eventDate;
     }
 
-    // If two entries have the same week and year
     public boolean equalWeekYear(WeeklyTracking weekTrackingObject) {
         if (this == weekTrackingObject) return true;
 
@@ -105,7 +95,6 @@ public class WeeklyTracking {
         return false;
     }
 
-    // If the entity was created before the parameter
     public boolean beforeWeekYear(WeeklyTracking weekTrackingObject) {
         if (this == weekTrackingObject) return true;
 

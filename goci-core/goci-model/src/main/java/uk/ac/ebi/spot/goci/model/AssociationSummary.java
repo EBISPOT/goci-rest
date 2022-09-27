@@ -2,16 +2,8 @@ package uk.ac.ebi.spot.goci.model;
 
 import java.util.Collection;
 
-/**
- * Created by emma on 21/03/2016.
- *
- * @author emma
- *         <p>
- *         Class used to represent a newly created association and any errors attahced
- */
 public class AssociationSummary {
 
-    // Row  number is only set if creating an association from an upload file
     private Integer rowNumber;
 
     private Association association;

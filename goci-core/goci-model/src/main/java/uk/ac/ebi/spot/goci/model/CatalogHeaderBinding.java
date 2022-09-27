@@ -2,12 +2,6 @@ package uk.ac.ebi.spot.goci.model;
 
 import java.util.Optional;
 
-/**
- * Javadocs go here!
- *
- * @author Tony Burdett
- * @date 20/02/15
- */
 public enum CatalogHeaderBinding {
     ID("ID", new Inclusion.Excluded(), new Inclusion.Excluded(), new Inclusion.Excluded()),
     STUDY_ADDED_DATE("STUDY_ADDED_DATE",

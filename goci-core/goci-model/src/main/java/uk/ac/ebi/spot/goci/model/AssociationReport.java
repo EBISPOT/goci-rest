@@ -3,12 +3,6 @@ package uk.ac.ebi.spot.goci.model;
 import javax.persistence.*;
 import java.util.Date;
 
-/**
- * Javadocs go here!
- *
- * @author Tony Burdett
- * @date 12/02/15
- */
 @Entity
 public class AssociationReport {
     @Id
@@ -40,7 +34,6 @@ public class AssociationReport {
     @OneToOne
     private Association association;
 
-    // JPA no-args constructor
     public AssociationReport() {
     }
 

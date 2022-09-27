@@ -6,12 +6,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import java.util.Date;
 
-/**
- * Javadocs go here!
- *
- * @author Tony Burdett
- * @date 12/02/15
- */
 @Entity
 public class StudyReport {
     @Id
@@ -31,7 +25,6 @@ public class StudyReport {
     @OneToOne
     private Study study;
 
-    // JPA no-args constructor
     public StudyReport() {
     }
 

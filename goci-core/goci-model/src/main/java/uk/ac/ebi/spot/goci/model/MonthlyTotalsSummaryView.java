@@ -2,11 +2,6 @@ package uk.ac.ebi.spot.goci.model;
 
 import javax.persistence.Entity;
 
-/**
- * Created by emma on 22/09/2015.
- * <p>
- * Model of the MONTHLY_TOTALS_SUMMARY_VIEW table
- */
 @Entity
 public class MonthlyTotalsSummaryView extends TotalsSummaryView {
 
@@ -15,9 +10,6 @@ public class MonthlyTotalsSummaryView extends TotalsSummaryView {
     private String accessionId;
     private String author;
 
-//    private Integer monthlyTotal;
-
-    // JPA no-args constructor
     public MonthlyTotalsSummaryView() {
     }
 
@@ -25,12 +17,9 @@ public class MonthlyTotalsSummaryView extends TotalsSummaryView {
                                     String curator,
                                     Integer curatorTotal,
                                     String curationStatus,
-                                    Integer month
-//                                    Integer monthlyTotal
-                                    ) {
+                                    Integer month) {
         super(year, curator, curatorTotal, curationStatus);
         this.month = month;
-//        this.monthlyTotal = monthlyTotal;
         this.pubmedId = pubmedId;
         this.accessionId = accessionId;
         this.author = author;
@@ -68,11 +57,4 @@ public class MonthlyTotalsSummaryView extends TotalsSummaryView {
         this.author = author;
     }
 
-//    public Integer getMonthlyTotal() {
-//        return monthlyTotal;
-//    }
-//
-//    public void setMonthlyTotal(Integer monthlyTotal) {
-//        this.monthlyTotal = monthlyTotal;
-//    }
 }

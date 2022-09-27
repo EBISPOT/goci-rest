@@ -14,14 +14,6 @@ import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- * Created by emma on 01/12/14.
- *
- * @author emma
- *         <p>
- *         A model object representing a gene and its attributes including associated single nucleotide polymorphisms
- */
-
 @Entity
 public class Gene {
     @Id
@@ -54,22 +46,6 @@ public class Gene {
     @RestResource(exported = false)
     private Collection<GenomicContext> genomicContexts;
 
-//    @ManyToMany(mappedBy = "genes")
-//    @ManyToMany
-//    @JoinTable(name = "ASSOCIATION_GENE_VIEW",
-//               joinColumns = @JoinColumn(name = "GENE_ID"),
-//               inverseJoinColumns = @JoinColumn(name = "ASSOCIATION_ID"))
-//    @RestResource(exported = false)
-//    @JsonBackReference
-//    private Collection<Association> associations;
-
-
-//    @ManyToMany(mappedBy = "genes")
-//    @JsonBackReference
-//    @RestResource(exported = false)
-//    private Collection<SingleNucleotidePolymorphism> snps;
-
-    // JPA no-args constructor
     public Gene() {
     }
 
@@ -146,19 +122,4 @@ public class Gene {
         this.genomicContexts = genomicContexts;
     }
 
-//    public Collection<Association> getAssociations() {
-//        return associations;
-//    }
-//
-//    public void setAssociations(Collection<Association> associations) {
-//        this.associations = associations;
-//    }
-//
-//    public Collection<SingleNucleotidePolymorphism> getSnps() {
-//        return snps;
-//    }
-//
-//    public void setSnps(Collection<SingleNucleotidePolymorphism> snps) {
-//        this.snps = snps;
-//    }
 }

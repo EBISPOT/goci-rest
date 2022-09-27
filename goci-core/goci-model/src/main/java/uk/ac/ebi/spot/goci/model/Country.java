@@ -9,13 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import java.util.Collection;
 
-/**
- * Created by emma on 19/12/14.
- *
- * @author emma
- *         <p>
- *         Model object representing a countryName
- */
 @Entity
 public class Country {
     @Id
@@ -38,8 +31,6 @@ public class Country {
     @RestResource(exported = false)
     private Collection<Ancestry> ancestriesRecruitment;
 
-
-    // JPA no-args constructor
     public Country() {
     }
 

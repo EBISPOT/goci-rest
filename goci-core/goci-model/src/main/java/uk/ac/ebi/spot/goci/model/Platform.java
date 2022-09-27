@@ -10,11 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import java.util.Collection;
 
-/**
-* Created by dwelter on 08/03/16.
-*/
 @Entity
-//@JsonIgnoreProperties({"studies"})
 public class Platform {
 
     @Id
@@ -29,7 +25,6 @@ public class Platform {
     @RestResource(exported = false)
     private Collection<Study> studies;
 
-    // JPA no-args constructor
     public Platform() {
     }
 
@@ -55,7 +50,6 @@ public class Platform {
         this.manufacturer = manufacturer;
     }
 
-//    @JsonIgnore
     public Collection<Study> getStudies() {
         return studies;
     }

@@ -10,10 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import java.util.Collection;
 
-/**
- * Created by Dani on 13/04/2017.
- */
-
 @Entity
 public class AncestralGroup {
 
@@ -25,12 +21,11 @@ public class AncestralGroup {
     private String ancestralGroup;
 
     @ManyToMany(mappedBy = "ancestralGroups")
-//    @JsonIgnore
+
     @JsonBackReference
     @RestResource(exported = false)
     private Collection<Ancestry> ancestries;
 
-    // JPA no-args constructor
     public AncestralGroup() {
     }
 
@@ -39,7 +34,6 @@ public class AncestralGroup {
         this.ancestralGroup = ancestralGroup;
         this.ancestries = ancestries;
     }
-
 
     public Long getId() {
         return id;

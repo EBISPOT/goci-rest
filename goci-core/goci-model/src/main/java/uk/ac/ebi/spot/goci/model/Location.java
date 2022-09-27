@@ -11,9 +11,6 @@ import javax.persistence.ManyToOne;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- * Created by Laurent on 15/05/15.
- */
 @Entity
 public class Location {
 
@@ -33,7 +30,6 @@ public class Location {
     @JsonBackReference
     private Collection<SingleNucleotidePolymorphism> snps = new ArrayList<>();
 
-    // JPA no-args constructor
     public Location() {}
 
     public Location(String chromosomeName,
