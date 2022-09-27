@@ -28,7 +28,6 @@ import java.net.URLEncoder;
 @RestController
 public class SnpLocationController {
 
-
     @Autowired
     private PagedResourcesAssembler snpAssembler;
 
