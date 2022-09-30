@@ -2,7 +2,7 @@
 ----
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 782
+Content-Length: 760
 
 {
   "trait" : "celiac disease",

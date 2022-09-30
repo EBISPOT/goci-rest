@@ -2,7 +2,7 @@
 ----
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 18302
+Content-Length: 17832
 
 {
   "_embedded" : {
@@ -459,7 +459,7 @@ Content-Length: 18302
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits?page=1&size=20"
     },
     "last" : {
-      "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits?page=157&size=20"
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/efoTraits?page=347&size=20"
     },
     "profile" : {
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/profile/efoTraits"
@@ -470,8 +470,8 @@ Content-Length: 18302
   },
   "page" : {
     "size" : 20,
-    "totalElements" : 3155,
-    "totalPages" : 158,
+    "totalElements" : 6956,
+    "totalPages" : 348,
     "number" : 0
   }
 }

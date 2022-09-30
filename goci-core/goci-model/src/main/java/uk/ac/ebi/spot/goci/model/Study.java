@@ -13,8 +13,10 @@ import java.util.Collection;
 
 @Entity
 public class Study implements Trackable {
+
     @Id
     @GeneratedValue
+    @JsonIgnore
     private Long id;
 
     private String initialSampleSize;

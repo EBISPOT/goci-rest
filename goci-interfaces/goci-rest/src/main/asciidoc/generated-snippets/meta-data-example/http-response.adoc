@@ -2,15 +2,15 @@
 ----
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 233
+Content-Length: 225
 
 {
   "_embedded" : {
     "mappingMetadatas" : [ {
-      "ensemblReleaseNumber" : 99,
+      "ensemblReleaseNumber" : 107,
       "genomeBuildVersion" : "GRCh38.p13",
-      "dbsnpVersion" : 153,
-      "usageStartDate" : "2020-01-15T20:00:04.034+0000"
+      "dbsnpVersion" : 154,
+      "usageStartDate" : "2022-07-12T13:00:04.614+0000"
     } ]
   }
 }

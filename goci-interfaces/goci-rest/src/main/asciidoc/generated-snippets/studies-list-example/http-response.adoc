@@ -2,7 +2,7 @@
 ----
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
-Content-Length: 64157
+Content-Length: 60738
 
 {
   "_embedded" : {
@@ -69,12 +69,6 @@ Content-Length: 64157
         "author" : {
           "fullname" : "Perlis RH",
           "orcid" : null
-        },
-        "_links" : {
-          "studies" : {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000854{?projection}",
-            "templated" : true
-          }
         }
       },
       "_links" : {
@@ -90,6 +84,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000854/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000854/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000854/efoTraits"
@@ -135,18 +132,12 @@ Content-Length: 64157
       "replicationSampleSize" : "NA",
       "publicationInfo" : {
         "pubmedId" : "20971583",
-        "publicationDate" : "2010-10-21",
+        "publicationDate" : "2010-10-22",
         "publication" : "J Hand Surg Am",
         "title" : "Genome-wide association scan of Dupuytren's disease.",
         "author" : {
           "fullname" : "Ojwang JO",
           "orcid" : null
-        },
-        "_links" : {
-          "studies" : {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000841{?projection}",
-            "templated" : true
-          }
         }
       },
       "_links" : {
@@ -162,6 +153,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000841/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000841/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000841/efoTraits"
@@ -255,24 +249,12 @@ Content-Length: 64157
       "replicationSampleSize" : "up to 37,774 European ancestry individuals, up to 9,665 Indian Asian ancestry individuals",
       "publicationInfo" : {
         "pubmedId" : "20864672",
-        "publicationDate" : "2010-09-22",
+        "publicationDate" : "2010-09-23",
         "publication" : "Arterioscler Thromb Vasc Biol",
         "title" : "Genetic variants influencing circulating lipid levels and risk of coronary artery disease.",
         "author" : {
           "fullname" : "Waterworth DM",
           "orcid" : null
-        },
-        "_links" : {
-          "studies" : [ {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000807{?projection}",
-            "templated" : true
-          }, {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000809{?projection}",
-            "templated" : true
-          }, {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000805{?projection}",
-            "templated" : true
-          } ]
         }
       },
       "_links" : {
@@ -288,6 +270,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000809/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000809/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000809/efoTraits"
@@ -355,18 +340,12 @@ Content-Length: 64157
       "replicationSampleSize" : "6,652 European ancestry individuals",
       "publicationInfo" : {
         "pubmedId" : "21060863",
-        "publicationDate" : "2010-10-27",
+        "publicationDate" : "2010-10-28",
         "publication" : "PLoS Genet",
         "title" : "Four novel Loci (19q13, 6q24, 12q24, and 5q14) influence the microcirculation in vivo.",
         "author" : {
           "fullname" : "Ikram MK",
           "orcid" : null
-        },
-        "_links" : {
-          "studies" : {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000847{?projection}",
-            "templated" : true
-          }
         }
       },
       "_links" : {
@@ -382,6 +361,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000847/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000847/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000847/efoTraits"
@@ -433,12 +415,6 @@ Content-Length: 64157
         "author" : {
           "fullname" : "Sato Y",
           "orcid" : null
-        },
-        "_links" : {
-          "studies" : {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000871{?projection}",
-            "templated" : true
-          }
         }
       },
       "_links" : {
@@ -454,6 +430,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000871/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000871/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000871/efoTraits"
@@ -527,12 +506,6 @@ Content-Length: 64157
         "author" : {
           "fullname" : "Benyamin B",
           "orcid" : "0000-0001-5608-2293"
-        },
-        "_links" : {
-          "studies" : {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST001837{?projection}",
-            "templated" : true
-          }
         }
       },
       "_links" : {
@@ -548,6 +521,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST001837/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST001837/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST001837/efoTraits"
@@ -635,12 +611,6 @@ Content-Length: 64157
         "author" : {
           "fullname" : "Khor CC",
           "orcid" : "0000-0002-1128-4729"
-        },
-        "_links" : {
-          "studies" : {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000970{?projection}",
-            "templated" : true
-          }
         }
       },
       "_links" : {
@@ -656,6 +626,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000970/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000970/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000970/efoTraits"
@@ -711,12 +684,6 @@ Content-Length: 64157
         "author" : {
           "fullname" : "Jin Y",
           "orcid" : null
-        },
-        "_links" : {
-          "studies" : {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000981{?projection}",
-            "templated" : true
-          }
         }
       },
       "_links" : {
@@ -732,6 +699,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000981/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000981/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000981/efoTraits"
@@ -825,12 +795,6 @@ Content-Length: 64157
         "author" : {
           "fullname" : "Böger CA",
           "orcid" : null
-        },
-        "_links" : {
-          "studies" : {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000988{?projection}",
-            "templated" : true
-          }
         }
       },
       "_links" : {
@@ -846,6 +810,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000988/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000988/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000988/efoTraits"
@@ -945,12 +912,6 @@ Content-Length: 64157
         "author" : {
           "fullname" : "Fox ER",
           "orcid" : null
-        },
-        "_links" : {
-          "studies" : {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000997{?projection}",
-            "templated" : true
-          }
         }
       },
       "_links" : {
@@ -966,6 +927,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000997/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000997/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000997/efoTraits"
@@ -1017,12 +981,6 @@ Content-Length: 64157
         "author" : {
           "fullname" : "Chung SA",
           "orcid" : null
-        },
-        "_links" : {
-          "studies" : {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000996{?projection}",
-            "templated" : true
-          }
         }
       },
       "_links" : {
@@ -1038,6 +996,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000996/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000996/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000996/efoTraits"
@@ -1095,12 +1056,6 @@ Content-Length: 64157
         "author" : {
           "fullname" : "Hu X",
           "orcid" : null
-        },
-        "_links" : {
-          "studies" : {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000986{?projection}",
-            "templated" : true
-          }
         }
       },
       "_links" : {
@@ -1116,6 +1071,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000986/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000986/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000986/efoTraits"
@@ -1185,12 +1143,6 @@ Content-Length: 64157
         "author" : {
           "fullname" : "Speliotes EK",
           "orcid" : null
-        },
-        "_links" : {
-          "studies" : {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST001008{?projection}",
-            "templated" : true
-          }
         }
       },
       "_links" : {
@@ -1206,6 +1158,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST001008/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST001008/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST001008/efoTraits"
@@ -1263,18 +1218,12 @@ Content-Length: 64157
       "replicationSampleSize" : "961 Hispanic individuals",
       "publicationInfo" : {
         "pubmedId" : "20600896",
-        "publicationDate" : "2010-06-25",
+        "publicationDate" : "2010-06-26",
         "publication" : "J Steroid Biochem Mol Biol",
         "title" : "Genome-wide association study of vitamin D concentrations in Hispanic Americans: the IRAS family study.",
         "author" : {
           "fullname" : "Engelman CD",
           "orcid" : null
-        },
-        "_links" : {
-          "studies" : {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000711{?projection}",
-            "templated" : true
-          }
         }
       },
       "_links" : {
@@ -1290,6 +1239,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000711/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000711/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000711/efoTraits"
@@ -1353,12 +1305,6 @@ Content-Length: 64157
         "author" : {
           "fullname" : "Herbeck JT",
           "orcid" : null
-        },
-        "_links" : {
-          "studies" : {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000596{?projection}",
-            "templated" : true
-          }
         }
       },
       "_links" : {
@@ -1374,6 +1320,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000596/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000596/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000596/efoTraits"
@@ -1461,18 +1410,12 @@ Content-Length: 64157
       "replicationSampleSize" : "10,252 East Asian ancestry individuals",
       "publicationInfo" : {
         "pubmedId" : "24105470",
-        "publicationDate" : "2013-10-13",
+        "publicationDate" : "2013-10-14",
         "publication" : "Hum Mol Genet",
         "title" : "A meta-analysis of genome-wide association studies for adiponectin levels in East Asians identifies a novel locus near WDR11-FGFR2.",
         "author" : {
           "fullname" : "Wu Y",
           "orcid" : null
-        },
-        "_links" : {
-          "studies" : {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST002233{?projection}",
-            "templated" : true
-          }
         }
       },
       "_links" : {
@@ -1488,6 +1431,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST002233/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST002233/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST002233/efoTraits"
@@ -1559,12 +1505,6 @@ Content-Length: 64157
         "author" : {
           "fullname" : "Liu YZ",
           "orcid" : null
-        },
-        "_links" : {
-          "studies" : {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000332{?projection}",
-            "templated" : true
-          }
         }
       },
       "_links" : {
@@ -1580,6 +1520,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000332/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000332/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000332/efoTraits"
@@ -1639,15 +1582,6 @@ Content-Length: 64157
         "author" : {
           "fullname" : "Lauc G",
           "orcid" : "0000-0003-1840-9560"
-        },
-        "_links" : {
-          "studies" : [ {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST001849{?projection}",
-            "templated" : true
-          }, {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST001848{?projection}",
-            "templated" : true
-          } ]
         }
       },
       "_links" : {
@@ -1663,6 +1597,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST001848/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST001848/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST001848/efoTraits"
@@ -1704,21 +1641,12 @@ Content-Length: 64157
       "replicationSampleSize" : "NA",
       "publicationInfo" : {
         "pubmedId" : "17903294",
-        "publicationDate" : "2007-09-18",
+        "publicationDate" : "2007-09-19",
         "publication" : "BMC Med Genet",
         "title" : "Genome-wide association and linkage analyses of hemostatic factors and hematological phenotypes in the Framingham Heart Study.",
         "author" : {
           "fullname" : "Yang Q",
           "orcid" : "0000-0002-3658-1375"
-        },
-        "_links" : {
-          "studies" : [ {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000082{?projection}",
-            "templated" : true
-          }, {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000080{?projection}",
-            "templated" : true
-          } ]
         }
       },
       "_links" : {
@@ -1734,6 +1662,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000082/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000082/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000082/efoTraits"
@@ -1799,18 +1730,12 @@ Content-Length: 64157
       "replicationSampleSize" : "1,465 European ancestry individuals, 1,464 European ancestry cases, 1,467 European ancestry controls, 300 Pima Indian ancestry cases, 334 Pima Indian ancestry controls, 287 Mexican American cases, 316 Mexican American controls, 124 Old Order Amish cases, 295 Old Order Amish controls",
       "publicationInfo" : {
         "pubmedId" : "17848626",
-        "publicationDate" : "2007-09-09",
+        "publicationDate" : "2007-09-10",
         "publication" : "Diabetes",
         "title" : "A 100K genome-wide association scan for diabetes and related traits in the Framingham Heart Study: replication and integration with other genome-wide datasets.",
         "author" : {
           "fullname" : "Florez JC",
           "orcid" : null
-        },
-        "_links" : {
-          "studies" : {
-            "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000073{?projection}",
-            "templated" : true
-          }
         }
       },
       "_links" : {
@@ -1826,6 +1751,9 @@ Content-Length: 64157
         },
         "snps" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000073/snps"
+        },
+        "backgroundEfoTraits" : {
+          "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000073/backgroundEfoTraits"
         },
         "efoTraits" : {
           "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies/GCST000073/efoTraits"
@@ -1847,7 +1775,7 @@ Content-Length: 64157
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies?page=1&size=20"
     },
     "last" : {
-      "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies?page=453&size=20"
+      "href" : "https://www.ebi.ac.uk/gwas/rest/api/studies?page=2494&size=20"
     },
     "profile" : {
       "href" : "https://www.ebi.ac.uk/gwas/rest/api/profile/studies"
@@ -1858,8 +1786,8 @@ Content-Length: 64157
   },
   "page" : {
     "size" : 20,
-    "totalElements" : 9076,
-    "totalPages" : 454,
+    "totalElements" : 49881,
+    "totalPages" : 2495,
     "number" : 0
   }
 }
