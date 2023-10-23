@@ -2,6 +2,7 @@ package uk.ac.ebi.spot.goci.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.hibernate.annotations.Where;
@@ -18,6 +19,20 @@ public class Study implements Trackable {
     @GeneratedValue
     @JsonIgnore
     private Long id;
+
+    @Transient
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String cohort;
+
+    @OneToOne(mappedBy = "study")
+    @JsonIgnore
+    private StudyExtension studyExtension;
+
+    @PostLoad
+    private void onLoad() {
+        if (this.studyExtension != null)
+            this.cohort = studyExtension.getCohort();
+    }
 
     private String initialSampleSize;
 
@@ -187,6 +202,10 @@ public class Study implements Trackable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getCohort() {
+        return cohort;
     }
 
     public String getInitialSampleSize() {
