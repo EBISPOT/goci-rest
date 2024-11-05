@@ -36,9 +36,9 @@ public class BodyOfWork{
     private Date publicationDate;
     private String doi;
 
-    @JsonBackReference
-    @ManyToMany
-    @JoinTable(name = "unpublished_study_to_work", joinColumns = @JoinColumn(name = "work_id"), inverseJoinColumns =
-    @JoinColumn(name = "study_id"))
-    private Collection<UnpublishedStudy> studies;
+//    @JsonBackReference
+//    @ManyToMany
+//    @JoinTable(name = "unpublished_study_to_work", joinColumns = @JoinColumn(name = "work_id"), inverseJoinColumns =
+//    @JoinColumn(name = "study_id"))
+//    private Collection<UnpublishedStudy> studies;
 }
