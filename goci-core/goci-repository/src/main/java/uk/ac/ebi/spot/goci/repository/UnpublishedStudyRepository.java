@@ -12,6 +12,7 @@ import uk.ac.ebi.spot.goci.model.UnpublishedStudy;
 @RepositoryRestResource(path = "unpublished-studies")
 public interface UnpublishedStudyRepository extends JpaRepository<UnpublishedStudy, Long> {
 
+
     @RestResource(path = "filter", rel = "filter")
     @Query("SELECT u FROM UnpublishedStudy u LEFT JOIN u.bodiesOfWork b " +
             "WHERE (:firstAuthor IS NULL OR LOWER(b.firstAuthor) LIKE LOWER(CONCAT('%', :firstAuthor, '%'))) " +
@@ -25,4 +26,5 @@ public interface UnpublishedStudyRepository extends JpaRepository<UnpublishedStu
             @Param("title") String title,
             @Param("trait") String trait,
             Pageable pageable);
+
 }
